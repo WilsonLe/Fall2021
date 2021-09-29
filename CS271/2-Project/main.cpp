@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#include <sys/time.h>
+#include <fstream>
 
 using namespace std;
 
@@ -41,7 +43,7 @@ void merge(vector<int>& A, int left, int mid, int right){
 			leftA.push_back(A[left + i]);
 	for (int j = 0; j < rightSize; j++)
 			rightA.push_back(A[mid + 1 + j]);
-			
+
 	int indexLeft = 0; // Initial index of left array
 	int indexRight = 0; // Initial index of right array
 	int indexMerge = left; // Initial index of merged array
@@ -82,15 +84,48 @@ void mergeSort(vector<int>& A, int begin, int end){
 	merge(A, begin, mid, end);
 }
 
-int main(){
+int ranInt(int start, int end){
+	srand(time(NULL));
+	return rand() % (end - start) + start;
+}
+
+vector<int> randomVector(int size, int minInt, int maxInt){
 	vector<int> A;
-	A.push_back(5);
-	A.push_back(3);
-	A.push_back(1);
-	A.push_back(2);
-	
-	mergeSort(A, 0, A.size()-1);
-	// selectionSort(A);
-	print(A);
+	for (int i = 0; i < size; i++){
+		A.push_back(ranInt(minInt, maxInt));
+	}
+	return A;
+}
+
+int main(){
+	ofstream file;
+	file.open("output.csv");
+	file << "input size,merge,selection" << endl;
+	for (int size = 100; size < 30000; size = size + 100){
+		file << size << ",";
+		// initialize array to be sorted, make sure both arrays are identical
+		vector<int> mergeVector = randomVector(size, 0, 1000);
+		vector<int> selectionVector = mergeVector;
+		
+		// Measure time for mergeSort
+		timeval timeBeforeM, timeAfterM;
+		long diffSecondsM, diffUSecondsM;
+		gettimeofday(&timeBeforeM, NULL);
+		mergeSort(mergeVector, 0, mergeVector.size() - 1);
+		gettimeofday(&timeAfterM, NULL);
+		diffSecondsM = timeAfterM.tv_sec - timeBeforeM.tv_sec;
+		diffUSecondsM = timeAfterM.tv_usec - timeBeforeM.tv_usec;
+		file << diffSecondsM + diffUSecondsM/1000000.0 << ",";
+
+		// Measure time for selectionSort
+		timeval timeBeforeS, timeAfterS;
+		long diffSecondsS, diffUSecondsS;
+		gettimeofday(&timeBeforeS, NULL);
+		selectionSort(selectionVector);
+		gettimeofday(&timeAfterS, NULL);
+		diffSecondsS = timeAfterS.tv_sec - timeBeforeS.tv_sec;
+		diffUSecondsS = timeAfterS.tv_usec - timeBeforeS.tv_usec;
+		file << diffSecondsS + diffUSecondsS/1000000.0 << endl;
+	}
 	return 0;
 }
