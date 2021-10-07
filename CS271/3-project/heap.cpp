@@ -29,6 +29,7 @@ Postconditions: Return a new instance of MinHeap whose internal array is the sam
 */
 template <class KeyType>
 MinHeap<KeyType>::MinHeap(KeyType initA[], int n) {
+    A = new KeyType[n];
     capacity = n;
     for(int i = 0; i < capacity; i++) {
         A[i] = initA[i];
@@ -43,6 +44,8 @@ Postconditions: Return a new instance of MinHeap whose instance variables are th
 */
 template <class KeyType>
 MinHeap<KeyType>::MinHeap(const MinHeap<KeyType>& heap) {
+    // Set A = nullptr so that copy method doesn't delete[] A
+    A = nullptr;
     copy(heap);
 }
 
@@ -115,7 +118,7 @@ void MinHeap<KeyType>::heapifyR(int index) {
 
     if(smallestChild != index) {
         swap(index, smallestChild);
-        heapify(smallestChild);
+        heapifyR(smallestChild);
     }
 }
 
@@ -148,7 +151,7 @@ void MinHeap<KeyType>::heapifyI(int index) {
 // Swap two elements at index1 and index2 in A
 template <class KeyType>
 void MinHeap<KeyType>::swap(int index1, int index2) {
-    int temp = A[index1];
+    KeyType temp = A[index1];
     A[index1] = A[index2];
     A[index2] = temp;
 }
@@ -169,7 +172,9 @@ void MinHeap<KeyType>::copy(const MinHeap<KeyType>& heap) {
 // Destructor to deallocate heap
 template <class KeyType>
 void MinHeap<KeyType>::destroy() {
-    delete[] A;
+    if(A != nullptr) {
+        delete[] A;
+    }
     heapSize = 0;
     capacity = 0;
 }
