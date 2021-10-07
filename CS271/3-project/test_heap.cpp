@@ -3,8 +3,6 @@
 #include "heap.h"
 using namespace std;
 
-
-
 void defaultConstructor(){
 	MinHeap<int> heap1 = MinHeap<int>();
 	assert(heap1.getCap() == 100);
