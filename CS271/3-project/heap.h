@@ -21,6 +21,8 @@ class MinHeap
     
     MinHeap<KeyType>& operator=(const MinHeap<KeyType>& heap);  // assignment operator
     std::string toString() const;     // return string representation
+    int getSize() const;     // return heapSize
+    int getCap() const;     // return capcity
 
   private:
     KeyType *A;     // array containing the heap

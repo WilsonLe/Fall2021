@@ -16,7 +16,7 @@ Postconditions: Return a new instance of MinHeap whose heapSize is 0 and capacit
 */
 
 template <class KeyType>
-MinHeap<KeyType>::MinHeap(int n = DEFAULT_SIZE) {
+MinHeap<KeyType>::MinHeap(int n) {
     A = new KeyType[n];
     heapSize = 0;
     capacity = n;
@@ -121,7 +121,7 @@ void MinHeap<KeyType>::heapifyR(int index) {
 
 // Heapify subheap rooted at index using iterative method
 template<class KeyType>
-void MinHeap<KeyType>::heapifyR(int index) {
+void MinHeap<KeyType>::heapifyI(int index) {
     while(leftChild(index) < heapSize) {
         int left = leftChild(index);
         int right = rightChild(index);
@@ -148,7 +148,7 @@ void MinHeap<KeyType>::heapifyR(int index) {
 // Swap two elements at index1 and index2 in A
 template <class KeyType>
 void MinHeap<KeyType>::swap(int index1, int index2) {
-    temp = A[index1];
+    int temp = A[index1];
     A[index1] = A[index2];
     A[index2] = temp;
 }
@@ -210,6 +210,20 @@ std::string MinHeap<KeyType>::toString() const
 		ss << "]";
 	}
 	return ss.str();
+}
+
+// use the following getSize() for testing purposes.
+template <class KeyType>
+int MinHeap<KeyType>::getSize() const
+{
+	return heapSize;
+}
+
+// use the following getCap() for testing purposes.
+template <class KeyType>
+int MinHeap<KeyType>::getCap() const
+{
+	return capacity;
 }
 
 template <class KeyType>
