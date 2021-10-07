@@ -100,8 +100,7 @@ vector<int> randomVector(int size, int minInt, int maxInt){
 int main(){
 	ofstream file;
 	file.open("output.csv");
-	file << "input size,merge,selection" << endl;
-	for (int size = 100; size < 30000; size = size + 100){
+	for (int size = 100; size < 10000; size = size + 100){
 		file << size << ",";
 		// initialize array to be sorted, make sure both arrays are identical
 		vector<int> mergeVector = randomVector(size, 0, 1000);
