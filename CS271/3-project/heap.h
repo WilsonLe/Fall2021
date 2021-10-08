@@ -5,6 +5,7 @@
 #define HEAP_H
 
 #include <iostream>
+#include <string>
 
 const int DEFAULT_SIZE = 100;
 
@@ -12,6 +13,12 @@ template <class KeyType>
 class MinHeap
 {
   public:
+		friend void testDefaultConstructor();
+		friend void testInitConstructor();
+		friend void testHeapify();
+		friend void testBuildHeap();
+		friend void testParentChilds();
+		
     MinHeap(int n = DEFAULT_SIZE);          // default constructor
     MinHeap(KeyType initA[], int n);        // construct heap from array
     MinHeap(const MinHeap<KeyType>& heap);  // copy constructor
@@ -21,8 +28,6 @@ class MinHeap
     
     MinHeap<KeyType>& operator=(const MinHeap<KeyType>& heap);  // assignment operator
     std::string toString() const;     // return string representation
-    int getSize() const;     // return heapSize
-    int getCap() const;     // return capcity
 
   private:
     KeyType *A;     // array containing the heap

@@ -217,20 +217,6 @@ std::string MinHeap<KeyType>::toString() const
 	return ss.str();
 }
 
-// use the following getSize() for testing purposes.
-template <class KeyType>
-int MinHeap<KeyType>::getSize() const
-{
-	return heapSize;
-}
-
-// use the following getCap() for testing purposes.
-template <class KeyType>
-int MinHeap<KeyType>::getCap() const
-{
-	return capacity;
-}
-
 template <class KeyType>
 std::ostream& operator<<(std::ostream& stream, const MinHeap<KeyType>& heap)
 {
