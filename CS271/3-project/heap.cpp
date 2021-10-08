@@ -39,8 +39,8 @@ MinHeap<KeyType>::MinHeap(KeyType initA[], int n) {
 
 /*
 Copy constructor
-Preconditions: None
-Postconditions: Return a new instance of MinHeap whose instance variables are the same as heap.
+Preconditions: The parameter heap is a correct min heap
+Postconditions: Return a new instance of MinHeap which is a copy of the parameter heap
 */
 template <class KeyType>
 MinHeap<KeyType>::MinHeap(const MinHeap<KeyType>& heap) {
@@ -59,7 +59,12 @@ MinHeap<KeyType>::~MinHeap() {
     destroy();
 }
 
-// Perform heapsort, return result in the sorted array
+/* 
+Perform heapsort, return result in the sorted array
+Preconditions: This heap is a correct min heap.
+Postconditions: The array sorted is sorted
+*/
+
 template<class KeyType>
 void MinHeap<KeyType>::heapSort(KeyType sorted[]) {
     int initialHeapSize = heapSize;
@@ -85,13 +90,21 @@ void MinHeap<KeyType>::heapSort(KeyType sorted[]) {
 
 }
 
-// Heapify subheap rooted at index
+/* 
+Heapify subheap rooted at index
+Preconditions: Two subtrees at root index are correct min heaps
+Post conditions: The tree at root index is a correct min heap.
+*/
 template<class KeyType>
 void MinHeap<KeyType>::heapify(int index) {
     heapifyR(index);
 }
 
-// Build heap from the array A
+/*
+Build heap from the array A
+Preconditions: None
+Postconditions: This heap is a correct min heap.
+*/
 template <class KeyType> 
 void MinHeap<KeyType>::buildHeap() {
     heapSize = capacity;
@@ -101,7 +114,11 @@ void MinHeap<KeyType>::buildHeap() {
     }
 }
 
-// Heapify subheap rooted at index using recursive method
+/* 
+Heapify subheap rooted at index using recursive method
+Preconditions: Two subtrees at root index are correct min heaps
+Post conditions: The tree at root index is a correct min heap.
+*/
 template<class KeyType>
 void MinHeap<KeyType>::heapifyR(int index) {
     int left = leftChild(index);
@@ -122,7 +139,11 @@ void MinHeap<KeyType>::heapifyR(int index) {
     }
 }
 
-// Heapify subheap rooted at index using iterative method
+/*
+Heapify subheap rooted at index using iterative method
+Preconditions: Two subtrees at root index are correct min heaps
+Post conditions: The tree at root index is a correct min heap.
+*/
 template<class KeyType>
 void MinHeap<KeyType>::heapifyI(int index) {
     while(leftChild(index) < heapSize) {
@@ -148,7 +169,11 @@ void MinHeap<KeyType>::heapifyI(int index) {
     }
 }
 
-// Swap two elements at index1 and index2 in A
+/*
+Swap two elements at index1 and index2 in A
+Preconditions: index1 and index2 are valid element in the array A
+Postconditions: two elements at index1 and index2 are swapped
+*/
 template <class KeyType>
 void MinHeap<KeyType>::swap(int index1, int index2) {
     KeyType temp = A[index1];
@@ -156,7 +181,11 @@ void MinHeap<KeyType>::swap(int index1, int index2) {
     A[index2] = temp;
 }
 
-// Copy heap to this heap
+/* 
+Copy the parameter heap to this heap
+Preconditions: The parameter heap is a correct min heap
+Postconditions: This heap becomes a copy of the parameter heap
+*/
 template <class KeyType>
 void MinHeap<KeyType>::copy(const MinHeap<KeyType>& heap) {
     destroy();
@@ -169,7 +198,11 @@ void MinHeap<KeyType>::copy(const MinHeap<KeyType>& heap) {
     }
 }
 
-// Destructor to deallocate heap
+/* 
+Destroy is a function to deallocate this heap.
+Preconditions: None.
+Postconditions: The array A of this heap is removed from memory and instance variables heapSize and capacity are set to 0.
+*/
 template <class KeyType>
 void MinHeap<KeyType>::destroy() {
     if(A != nullptr) {
@@ -179,7 +212,11 @@ void MinHeap<KeyType>::destroy() {
     capacity = 0;
 }
 
-// Assignment operator
+/* 
+Assignment operator.
+Preconditions: The parameter heap is a correct min heap.
+Postconditions: if this heap and the parameter heap is not the same (having the same address), this heap becomes a copy of the parameter heap
+*/
 template<class KeyType>
 MinHeap<KeyType>& MinHeap<KeyType>::operator=(const MinHeap<KeyType>& heap) {
     if(this != &heap) {
