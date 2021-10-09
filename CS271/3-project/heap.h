@@ -25,6 +25,7 @@ class MinHeap
 
     // Unit tests
     friend void testDefaultConstructor();
+    friend void testSwap();
     friend void testInitConstructor();
     friend void testHeapify();
     friend void testBuildHeap();

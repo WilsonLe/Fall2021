@@ -1,3 +1,11 @@
+/*
+Class: CS 271, Fall 2021
+Professor: Jessen Havill
+Name: Tung Luu, Wilson Le
+Date: October 4, 2021
+Purpose: Answers to project 3
+*/
+
 #include<string>
 #include <assert.h>
 #include "heap.h"
@@ -21,6 +29,19 @@ void testParentChilds(){
 	assert(heap.leftChild(0) == 1);
 	assert(heap.rightChild(0) == 2);
 	cout << "Test Parent Childs Passed" << endl;
+}
+
+void testSwap() {
+	int n = 5;
+    int initA[5] = {0, 1, 2, 3, 4};
+    MinHeap<int> heap = MinHeap<int>(5);
+    for(int i = 0; i < n; i++) {
+        heap.A[i] = initA[i];
+    }
+    heap.heapSize = n;
+    heap.swap(1,4);
+    assert(heap.toString() == "[0, 4, 2, 3, 1 | ]");
+    cout << "Test Swap passed" << endl;
 }
 
 void testHeapify(){
@@ -58,6 +79,7 @@ void testInitConstructor(){
 	cout << "Init Constructor Passed" << endl;
 }
 
+// If this function is correct, then that means the copy function is also correct. Therefore, we don't need to test the copy function
 void testCopyConstructor(){
 	int initA[5] = {0, 1, 2, 3, 4};
 	MinHeap<int> heap1 = MinHeap<int>(initA, 5);
@@ -86,6 +108,7 @@ void testHeapSort(){
 int main(){
 	testDefaultConstructor();
 	testParentChilds();
+    testSwap();
 	testHeapify();
 	testBuildHeap();
     
