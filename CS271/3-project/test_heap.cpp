@@ -1,4 +1,3 @@
-#include<sstream>
 #include<string>
 #include <assert.h>
 #include "heap.h"
@@ -14,11 +13,48 @@ void testDefaultConstructor(){
 	cout << "Default Constructor Passed" << endl;
 }
 
-void testInitConstructor(){
+void testParentChilds(){
+	int initA[3] = {0, 1, 2};
+	MinHeap<int> heap = MinHeap<int>(initA, 3);
+	assert(heap.parent(1) == 0);
+	assert(heap.parent(2) == 0);
+	assert(heap.leftChild(0) == 1);
+	assert(heap.rightChild(0) == 2);
+	cout << "Test Parent Childs Passed" << endl;
+}
+
+void testHeapify(){
+	int n = 5;
 	int initA[5] = {0, 1, 2, 3, 4};
+	MinHeap<int> heap = MinHeap<int>(n);
+    for(int i = 0; i < n; i++) {
+        heap.A[i] = initA[i];
+    }
+    heap.heapSize = n;
+    heap.A[0] = 9;
+	heap.heapify(0);
+	assert(heap.toString() == "[1, 3, 2, 9, 4 | ]");
+	cout << "Heapify " << heap.toString() << " Passed" << endl;
+}
+
+void testBuildHeap(){
+	int n = 5;
+	int initA[5] = {4,3,2,1,0};
+	MinHeap<int> heap = MinHeap<int>(initA, n);
+    for(int i = 0; i < n; i++) {
+        heap.A[i] = initA[i];
+    }
+	heap.buildHeap();
+	assert(heap.toString() == "[0, 1, 2, 4, 3 | ]");
+	cout << "Build Heap " << heap.toString() << " Passed" << endl;
+}
+
+void testInitConstructor(){
+	int initA[5] = {4,3,2,1,0};
 	MinHeap<int> heap1 = MinHeap<int>(initA, 5);
 	assert(heap1.capacity == 5);
 	assert(heap1.heapSize == 5);
+    assert(heap1.toString() == "[0, 1, 2, 4, 3 | ]");
 	cout << "Init Constructor Passed" << endl;
 }
 
@@ -43,70 +79,19 @@ void testHeapSort(){
 	int n = 10;
 	MinHeap<int> heap = MinHeap<int>(initA, n);
 	heap.heapSort(initA);
-	stringstream s;
-	s << "[";
-	for (int i = 0; i < n - 1; i++){
-		s << initA[i] << ", ";
-	}
-	s << initA[n - 1] << "]";
-	assert(s.str() == "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]");
-	cout << "Heap Sort " << s.str() << " Passed" << endl;
-}
-
-void testHeapify(){
-	int n = 4;
-	int initA[4] = {0, 1, 2, 3};
-	MinHeap<int> heap = MinHeap<int>(initA, n);
-	heap.capacity++;
-	heap.A[n] = 4;
-	heap.heapSize++;
-	heap.heapify(1);
-	stringstream s;
-	s << "[";
-	for (int i = 0; i < heap.heapSize - 1; i++){
-		s << heap.A[i] << ", ";
-	}
-	s << heap.A[heap.heapSize - 1] << "]";
-	assert(s.str() == "[0, 1, 2, 3, 4]");
-	cout << "Heapify " << s.str() << " Passed" << endl;
-}
-
-void testBuildHeap(){
-	int n = 5;
-	int initA[5] = {0, 2, 3, 5, 7};
-	MinHeap<int> heap = MinHeap<int>(initA, n);
-	heap.capacity++;
-	heap.A[n] = 1;
-	heap.heapSize++;
-	heap.buildHeap();
-	stringstream s;
-	s << "[";
-	for (int i = 0; i < heap.heapSize - 1; i++){
-		s << heap.A[i] << ", ";
-	}
-	s << heap.A[heap.heapSize - 1] << "]";
-	assert(s.str() == "[0, 2, 1, 5, 7, 3]");
-	cout << "Build Heap " << s.str() << " Passed" << endl;
-}
-
-void testParentChilds(){
-	int initA[3] = {0, 1, 2};
-	MinHeap<int> heap = MinHeap<int>(initA, 3);
-	assert(heap.parent(1) == 0);
-	assert(heap.parent(2) == 0);
-	assert(heap.leftChild(0) == 1);
-	assert(heap.rightChild(0) == 2);
-	cout << "Test Parent Childs Passed" << endl;
+	assert(heap.toString() == "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | ]");
+	cout << "Heap Sort " << heap.toString() << " Passed" << endl;
 }
 
 int main(){
 	testDefaultConstructor();
+	testParentChilds();
+	testHeapify();
+	testBuildHeap();
+    
 	testInitConstructor();
 	testCopyConstructor();
 	testAssignmentOperator();
 	testHeapSort();
-	testBuildHeap();
-	testHeapify();
-	testParentChilds();
 	return 0;
 }

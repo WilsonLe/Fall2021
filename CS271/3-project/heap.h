@@ -13,12 +13,6 @@ template <class KeyType>
 class MinHeap
 {
   public:
-		friend void testDefaultConstructor();
-		friend void testInitConstructor();
-		friend void testHeapify();
-		friend void testBuildHeap();
-		friend void testParentChilds();
-		
     MinHeap(int n = DEFAULT_SIZE);          // default constructor
     MinHeap(KeyType initA[], int n);        // construct heap from array
     MinHeap(const MinHeap<KeyType>& heap);  // copy constructor
@@ -28,6 +22,13 @@ class MinHeap
     
     MinHeap<KeyType>& operator=(const MinHeap<KeyType>& heap);  // assignment operator
     std::string toString() const;     // return string representation
+
+    // Unit tests
+    friend void testDefaultConstructor();
+    friend void testInitConstructor();
+    friend void testHeapify();
+    friend void testBuildHeap();
+    friend void testParentChilds();
 
   private:
     KeyType *A;     // array containing the heap
