@@ -73,6 +73,13 @@ class Dict{
 			pair<string, T> temp (key, val);
 			v.push_back(temp);
 		}
+		T get(string key){
+			for (int i = 0; i < v.size(); i++){
+				if (v[i].first == key){
+					return v[i].second;
+				}
+			}
+		}
 		void remove(string key){
 			for (int i = 0; i < v.size(); i++){
 				if (v[i].first == key){
