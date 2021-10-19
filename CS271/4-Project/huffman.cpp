@@ -130,6 +130,16 @@ Dict<string> treeToDict(Node* node){
 	}
 }
 
+string DictToCode(string data, Dict<string> dictionary){
+	// Remember to read the input file to 
+	string code;
+	for (int i=0; i < data.length(); i ++){
+		string key(1, data[i]);
+		code += dictionary.get(key);
+	}
+	return code;
+}
+
 int main(int argc, char* argv[]){
 	string action = argv[1];
 	string inputFile = argv[2];
