@@ -36,43 +36,105 @@ class Node{
 			return ss.str();
 		}
 };
-
 std::stringstream& operator<<(std::stringstream& stream, Node node)
 {
 	stream << node.toString();
 	return stream;
 }
+std::ostream& operator<<(std::ostream& stream, Node node)
+{
+	stream << node.toString();
+	return stream;
+}
+std::stringstream& operator<<(std::stringstream& stream, Node* node)
+{
+	if (node != nullptr){
+		stream << node->toString();
+		return stream;
+	}else{
+		return stream;
+	}
+}
+std::ostream& operator<<(std::ostream& stream, Node* node)
+{
+	if (node != nullptr){
+		stream << node->toString();
+		return stream;
+	}else {
+		return stream;
+	}
+}
 
-MinPriorityQueue<Node> huffman(vector< pair<char, int> > c){
-	int n = c.size();
+template <class T>
+class Dict{
+	public:
+		vector< pair<string, T> > v;
+		void set(string key, T val){
+			pair<string, T> temp (key, val);
+			v.push_back(temp);
+		}
+		void remove(string key){
+			for (int i = 0; i < v.size(); i++){
+				if (v[i].first == key){
+					v.erase(v.begin() + i);
+				}
+			}
+		}
+		T operator[] (int i){
+			return v[i].second;
+		}
+		int size(){
+			return keys().size();
+		}
+		vector<string> keys(){
+			vector<string> out;
+			for (int i = 0; i < v.size(); i++){
+				out.push_back(v[i].first);
+			}
+			return out;
+		}
+};
+
+Node* huffman(Dict<int> dict){
+	int n = dict.size();
 	MinPriorityQueue<Node> q;
-	for (int i = 0; i < c.size(); i++){
+	for (int i = 0; i < dict.size(); i++){
 		Node* tempNode = new Node;
-		int* tempInt = new int;
-		tempInt = &c[i].second;
+		int* tempInt = new int(dict[i]);
 		tempNode->freq = tempInt;
 		q.insert(tempNode);
 	}
-	Node* tempNode = new Node;
-	// cout << tempNode;
-	cout << q << endl;
-	return q;
+	for (int i = 0; i < dict.size() - 1; i++){
+		Node* tempNode = new Node;
+		Node* x = q.extractMin();
+		Node* y = q.extractMin();
+		tempNode->left = x;
+		tempNode->right = y;
+		*(tempNode->freq) = *(x->freq) + *(y->freq);
+		q.insert(tempNode);
+	}
+	return q.extractMin();
+}
+
+Dict<string> treeToDict(Node* node){
+	Dict<string> d;
+	while (node->left != nullptr && node->right != nullptr){
+		
+	}
 }
 
 int main(int argc, char* argv[]){
 	string action = argv[1];
 	string inputFile = argv[2];
 	string outputFile = argv[3];
-	vector< pair<char, int> > c;
-	pair<char, int> p1 ('a', 10);
-	c.push_back(p1);
-	pair<char, int> p2 ('b', 20);
-	c.push_back(p2);
-	pair<char, int> p3 ('c', 30);
-	c.push_back(p3);
+	Dict c;
+	c.set("a", 10);
+	c.set("b", 20);
+	c.set("c", 30);
 
 	if (action == "-c"){
-		huffman(c);
+		Node* node = huffman(c);
+		cout << node << endl;
 	} else if (action == "-d"){
 
 	} else{
