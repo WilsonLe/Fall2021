@@ -50,7 +50,6 @@ KeyType* MinPriorityQueue<KeyType>::extractMin()
 	this->heapSize -= 1;
 	this->heapify(0);
 	return minElement;
-
 }
 
 template <class KeyType>
@@ -76,8 +75,9 @@ void MinPriorityQueue<KeyType>::insert(KeyType* key)
 	this->heapSize += 1;
 	// cout<<heapSize<<endl;
 	int inf = ~(1 << 31);
-	int* pointer = &inf;
-	this->A[heapSize-1] = pointer;
+	KeyType* temp = new KeyType(inf);
+	// temp = &inf;
+	this->A[heapSize-1] = temp;
 	this->decreaseKey(heapSize-1, key);
 }
 
