@@ -68,19 +68,28 @@ std::ostream& operator<<(std::ostream& stream, Node* node)
 template <class T>
 class Dict{
 	public:
-		vector< pair<string, T> > v;
-		void set(string key, T val){
-			pair<string, T> temp (key, val);
+		vector< pair<char, T> > v;
+		void set(char key, T val){
+			pair<char, T> temp (key, val);
 			v.push_back(temp);
 		}
-		T get(string key){
+		T getValue(char key){
 			for (int i = 0; i < v.size(); i++){
 				if (v[i].first == key){
 					return v[i].second;
 				}
 			}
 		}
-		void remove(string key){
+
+		char getKey(T val){
+			for (int i = 0; i < v.size(); i++){
+				if (v[i].second == val){
+					return v[i].first;
+				}
+			}
+		}
+		
+		void remove(char key){
 			for (int i = 0; i < v.size(); i++){
 				if (v[i].first == key){
 					v.erase(v.begin() + i);
@@ -135,7 +144,7 @@ string DictToCode(string data, Dict<string> dictionary){
 	string code;
 	for (int i=0; i < data.length(); i ++){
 		string key(1, data[i]);
-		code += dictionary.get(key);
+		code += dictionary.getKey(key);
 	}
 	return code;
 }
@@ -144,10 +153,10 @@ int main(int argc, char* argv[]){
 	string action = argv[1];
 	string inputFile = argv[2];
 	string outputFile = argv[3];
-	Dict c;
-	c.set("a", 10);
-	c.set("b", 20);
-	c.set("c", 30);
+	Dict<string> c;
+	c.set("a", "10");
+	c.set("b", "20");
+	c.set("c", "30");
 
 	if (action == "-c"){
 		Node* node = huffman(c);
