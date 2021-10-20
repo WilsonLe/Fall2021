@@ -88,7 +88,14 @@ class Dict{
 				}
 			}
 		}
-		
+		bool have(T val){
+			for (int i = 0; i < v.size(); i++){
+				if (v[i].second == val){
+					return true;
+				}
+			}
+			return false;
+		}
 		void remove(char key){
 			for (int i = 0; i < v.size(); i++){
 				if (v[i].first == key){
@@ -139,7 +146,7 @@ Dict<string> treeToDict(Node* node){
 	}
 }
 
-string DictToCode(string data, Dict<string> dictionary){
+string DataToCode(string data, Dict<string> dictionary){
 	// Remember to read the input file to 
 	string code;
 	for (int i=0; i < data.length(); i ++){
@@ -147,15 +154,29 @@ string DictToCode(string data, Dict<string> dictionary){
 	}
 	return code;
 }
+string CodeToData(string code, Dict<string> dictionary){
+	// Remember to read the input file to 
+	string data;
+	string subcode;
+
+	for (int i=0; i < code.length(); i ++){
+		subcode.push_back(code[i]);
+		if (dictionary.have(subcode)){
+			data.push_back(dictionary.getKey(subcode));
+			subcode = "";
+		}
+	}
+	return data;
+}
 
 int main(int argc, char* argv[]){
 	string action = argv[1];
 	string inputFile = argv[2];
 	string outputFile = argv[3];
 	Dict<string> c;
-	c.set("a", "10");
-	c.set("b", "20");
-	c.set("c", "30");
+	c.set('a', "10");
+	c.set('b', "20");
+	c.set('c', "30");
 
 	if (action == "-c"){
 		Node* node = huffman(c);
