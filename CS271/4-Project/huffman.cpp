@@ -143,8 +143,7 @@ string DictToCode(string data, Dict<string> dictionary){
 	// Remember to read the input file to 
 	string code;
 	for (int i=0; i < data.length(); i ++){
-		string key(1, data[i]);
-		code += dictionary.getKey(key);
+		code += dictionary.getValue(data[i]);
 	}
 	return code;
 }
