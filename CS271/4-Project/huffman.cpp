@@ -3,177 +3,12 @@
 #include <string>
 #include <sstream>
 #include <vector>
+
 #include "pq.h"
+#include "node.h"
+#include "dict.h"
+
 using namespace std;
-
-class Node{
-	public:
-		Node(){
-			key = '\0';
-			left = nullptr;
-			right = nullptr;
-			freq = new int(0);
-		}
-		Node(int n){
-			key = '\0';
-			left = nullptr;
-			right = nullptr;
-			freq = &n;
-		}
-
-		bool operator > (Node node){
-			return freq > node.freq;
-		}
-
-		bool operator < (Node node){
-			return freq < node.freq;
-		}
-
-		Node* left;
-		Node* right;
-		int* freq;
-		char key;
-
-		string toString(){
-			stringstream ss;
-			ss << *freq;
-			return ss.str();
-		}
-};
-std::stringstream& operator<<(std::stringstream& stream, Node node)
-{
-	stream << node.toString();
-	return stream;
-}
-std::ostream& operator<<(std::ostream& stream, Node node)
-{
-	stream << node.toString();
-	return stream;
-}
-std::stringstream& operator<<(std::stringstream& stream, Node* node)
-{
-	if (node != nullptr){
-		stream << node->toString();
-		return stream;
-	}else{
-		return stream;
-	}
-}
-std::ostream& operator<<(std::ostream& stream, Node* node)
-{
-	if (node != nullptr){
-		stream << node->toString();
-		return stream;
-	}else {
-		return stream;
-	}
-}
-
-class InvalidKey { }; // Class when get invalid key
-class InvalidValue { }; // Class when invalid value
-
-template <class T>
-class Dict{
-	public:
-		vector< pair<char, T> > v;
-		void set(char key, T val){
-			pair<char, T> temp (key, val);
-			v.push_back(temp);
-		}
-		T getValue(char key){
-			for (int i = 0; i < v.size(); i++){
-				if (v[i].first == key){
-					return v[i].second;
-				}
-			}
-			throw InvalidKey();
-		}
-
-		char getKeyByIndex(int index){
-			return v[index].first;
-		}
-
-		char getKeyByValue(T val){
-			for (int i = 0; i < v.size(); i++){
-				if (v[i].second == val){
-					return v[i].first;
-				}
-			}
-			throw InvalidValue();
-		}
-		bool haveValue(T val){
-			for (int i = 0; i < v.size(); i++){
-				if (v[i].second == val){
-					return true;
-				}
-			}
-			return false;
-		}
-
-		bool haveKey(char key){
-			for (int i = 0; i < v.size(); i++){
-				if (v[i].first == key){
-					return true;
-				}
-			}
-			return false;
-		}
-		void modifyValue(char key, T val){
-			for (int i = 0; i < v.size(); i++){
-				if (v[i].first == key){
-					v[i].second = val;
-				}
-			}
-		}
-		void remove(char key){
-			for (int i = 0; i < v.size(); i++){
-				if (v[i].first == key){
-					v.erase(v.begin() + i);
-				}
-			}
-		}
-		T operator[] (int i){
-			return v[i].second;
-		}
-		int size(){
-			return keys().size();
-		}
-		vector<char> keys(){
-			vector<char> out;
-			for (int i = 0; i < v.size(); i++){
-				out.push_back(v[i].first);
-			}
-			return out;
-		}
-		string toString(){
-			std::stringstream ss;
-			for (int i = 0; i < v.size(); i++){
-				string character = string(1, v[i].first);
-				if (character == " "){
-					ss << "\\" << "s" << ": " << v[i].second << "\n";
-				}else if(character == "\n"){
-					ss << "\\" << "n" << ": " << v[i].second << "\n";
-				}else{
-					ss << character << ": " << v[i].second << "\n";
-				}
-			}
-			return ss.str();
-		}
-		string toHeader(){
-			std::stringstream ss;
-			for (int i = 0; i < v.size(); i++){
-				string character = string(1, v[i].first);
-				ss << character << v[i].second<<",";
-			}
-			ss << ",";
-			return ss.str();
-		}
-		void printKeys(){
-			for (int i = 0; i < v.size(); i++){
-				cout<<(v[i].first) <<","<<v[i].second<<endl;
-			}
-		}
-};
 
 Dict<int> countFrequency(string input){
 	Dict<int> dictionary;
@@ -272,12 +107,11 @@ void decode(string input, string output){
 	}
 	string dataString = ds.str();
 
-	// parse header
+	// parse header to dict
 	Dict<string> dictionary;
 	int j = 0;
 	while (j < headerString.size()){
 		char key = headerString[j];
-		cout << key << ": ";
 		j++;
 		stringstream val;
 		while (j < headerString.size() && headerString[j] != ','){
@@ -287,6 +121,8 @@ void decode(string input, string output){
 		j++;
 		dictionary.set(key,val.str());
 	}
+
+	// decode based on dict
 	stringstream code;
 	for (int i = 0; i < dataString.size(); i++){
 		code << string(1, dataString[i]);
