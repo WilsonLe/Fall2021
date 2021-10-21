@@ -8,13 +8,13 @@ using namespace std;
 class Node{
 	public:
 		Node(){
-			key = '';
+			key = '\0';
 			left = nullptr;
 			right = nullptr;
 			freq = new int(0);
 		}
 		Node(int n){
-			key = '';
+			key = '\0';
 			left = nullptr;
 			right = nullptr;
 			freq = &n;
@@ -91,13 +91,29 @@ class Dict{
 				}
 			}
 		}
-		bool have(T val){
+		bool haveValue(T val){
 			for (int i = 0; i < v.size(); i++){
 				if (v[i].second == val){
 					return true;
 				}
 			}
 			return false;
+		}
+
+		bool haveKey(char key){
+			for (int i = 0; i < v.size(); i++){
+				if (v[i].first == key){
+					return true;
+				}
+			}
+			return false;
+		}
+		void modifyValue(char key, T val){
+			for (int i = 0; i < v.size(); i++){
+				if (v[i].first == key){
+					v[i].second = val;
+				}
+			}
 		}
 		void remove(char key){
 			for (int i = 0; i < v.size(); i++){
@@ -112,14 +128,29 @@ class Dict{
 		int size(){
 			return keys().size();
 		}
-		vector<string> keys(){
-			vector<string> out;
+		vector<char> keys(){
+			vector<char> out;
 			for (int i = 0; i < v.size(); i++){
 				out.push_back(v[i].first);
 			}
 			return out;
 		}
 };
+
+Dict<int> countFrequency(string data){
+	Dict<int> dictionary;
+	int n = data.length();
+	for (int i=0; i < n; i++){
+		if (dictionary.haveKey(data[i])){
+			int oldFreq = dictionary.getValue(data[i]);
+			dictionary.modifyValue(data[i], oldFreq+1);
+		}
+		else {
+			dictionary.set(data[i], 1);
+		}
+	}
+	return dictionary;
+}
 
 Node* huffman(Dict<int> dict){
 	int n = dict.size();
@@ -174,7 +205,7 @@ string CodeToData(string code, Dict<string> dictionary){
 
 	for (int i=0; i < code.length(); i ++){
 		subcode.push_back(code[i]);
-		if (dictionary.have(subcode)){
+		if (dictionary.haveValue(subcode)){
 			data.push_back(dictionary.getKey(subcode));
 			subcode = "";
 		}
@@ -183,21 +214,29 @@ string CodeToData(string code, Dict<string> dictionary){
 }
 
 int main(int argc, char* argv[]){
-	string action = argv[1];
-	string inputFile = argv[2];
-	string outputFile = argv[3];
-	Dict<string> c;
-	c.set('a', "10");
-	c.set('b', "20");
-	c.set('c', "30");
+	// string action = argv[1];
+	// string inputFile = argv[2];
+	// string outputFile = argv[3];
+	// Dict<string> c;
+	// c.set('a', "10");
+	// c.set('b', "20");
+	// c.set('c', "30");
 
-	if (action == "-c"){
-		Node* node = huffman(c);
-		cout << node << endl;
-	} else if (action == "-d"){
+	// if (action == "-c"){
+	// 	Node* node = huffman(c);
+	// 	cout << node << endl;
+	// } else if (action == "-d"){
 
-	} else{
-		cout << "Invalid argument" << endl;
-	}
+	// } else{
+	// 	cout << "Invalid argument" << endl;
+	// }
+	string data = "sioadfjasdklvnshafgouhjwejklxcnagvygwdufgasjhfgvcastfchgawdvcyw";
+	Dict<int> dictFreq = countFrequency(data);
+	Node* root = huffman(dictFreq);
+	Dict<string> dictHuffman;
+	string current;
+	dictHuffman = treeToDict(root, dictHuffman, current);
+	string code = DataToCode(data, dictHuffman);
+	cout<<code <<endl;
 	return 0;
 }
