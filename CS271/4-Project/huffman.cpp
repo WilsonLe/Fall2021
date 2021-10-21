@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <sstream>
 #include <vector>
@@ -68,6 +69,9 @@ std::ostream& operator<<(std::ostream& stream, Node* node)
 	}
 }
 
+class InvalidKey { }; // Class when get invalid key
+class InvalidValue { }; // Class when invalid value
+
 template <class T>
 class Dict{
 	public:
@@ -82,6 +86,7 @@ class Dict{
 					return v[i].second;
 				}
 			}
+			throw InvalidKey();
 		}
 
 		char getKeyByIndex(int index){
@@ -94,6 +99,7 @@ class Dict{
 					return v[i].first;
 				}
 			}
+			throw InvalidValue();
 		}
 		bool haveValue(T val){
 			for (int i = 0; i < v.size(); i++){
@@ -139,13 +145,29 @@ class Dict{
 			}
 			return out;
 		}
-		// string ToString(){
-		// 	std::stringstream ss;
-		// 	for (int i = 0; i < v.size(); i++){
-		// 		ss << v[i].first<<","<<v[i].second << "\n";
-		// 	}
-		// 	return ss.str();
-		// }
+		string toString(){
+			std::stringstream ss;
+			for (int i = 0; i < v.size(); i++){
+				string character = string(1, v[i].first);
+				if (character == " "){
+					ss << "\\" << "s" << ": " << v[i].second << "\n";
+				}else if(character == "\n"){
+					ss << "\\" << "n" << ": " << v[i].second << "\n";
+				}else{
+					ss << character << ": " << v[i].second << "\n";
+				}
+			}
+			return ss.str();
+		}
+		string toHeader(){
+			std::stringstream ss;
+			for (int i = 0; i < v.size(); i++){
+				string character = string(1, v[i].first);
+				ss << character << v[i].second<<",";
+			}
+			ss << ",";
+			return ss.str();
+		}
 		void printKeys(){
 			for (int i = 0; i < v.size(); i++){
 				cout<<(v[i].first) <<","<<v[i].second<<endl;
@@ -153,16 +175,19 @@ class Dict{
 		}
 };
 
-Dict<int> countFrequency(string data){
+Dict<int> countFrequency(string input){
 	Dict<int> dictionary;
-	int n = data.length();
-	for (int i=0; i < n; i++){
-		if (dictionary.haveKey(data[i])){
-			int oldFreq = dictionary.getValue(data[i]);
-			dictionary.modifyValue(data[i], oldFreq+1);
-		}
-		else {
-			dictionary.set(data[i], 1);
+	stringstream s;
+	ifstream inputFile (input);
+	s << inputFile.rdbuf();
+	string fileString = s.str();
+	for (int i = 0; i < fileString.size(); i++){
+		char character = fileString[i];
+		if (dictionary.haveKey(character)){
+			int currentFreq = dictionary.getValue(character);
+			dictionary.modifyValue(character, currentFreq + 1);
+		}else {
+			dictionary.set(character, 1);
 		}
 	}
 	return dictionary;
@@ -174,7 +199,6 @@ Node* huffman(Dict<int> dict){
 	for (int i = 0; i < n; i++){
 		Node* tempNode = new Node;
 		tempNode->key = dict.getKeyByIndex(i);
-		cout << dict[i]<<endl;
 		int* tempInt = new int(dict[i]);
 		tempNode->freq = tempInt;
 		q.insert(tempNode);
@@ -204,62 +228,91 @@ Dict<string> treeToDict(Node* node, Dict<string> dictionary, string current){
 		dictionary = treeToDict(node->right, dictionary, current);
 	}
 	return dictionary;
-
 }
 
-string DataToCode(string data, Dict<string> dictionary){
+void encode(string input, string output, Dict<string> dictionary){
 	// Remember to read the input file to 
-	string code;
-	for (int i=0; i < data.length(); i ++){
-		code += dictionary.getValue(data[i]);
+	ifstream inputFile(input);
+	ofstream outputFile(output);
+	stringstream s;
+	s << inputFile.rdbuf();
+	string inputString = s.str();
+	outputFile << dictionary.toHeader();
+	for (int i = 0; i < inputString.size(); i++){
+		char character = inputString[i];
+		string encodedString = dictionary.getValue(character);
+		outputFile << encodedString;
 	}
-	return code;
 }
-string CodeToData(string code, Dict<string> dictionary){
-	// Remember to read the input file to 
-	string data;
-	string subcode;
 
-	for (int i=0; i < code.length(); i ++){
-		subcode.push_back(code[i]);
-		if (dictionary.haveValue(subcode)){
-			data.push_back(dictionary.getKeyByValue(subcode));
-			subcode = "";
+void decode(string input, string output){
+	ifstream inputFile(input);
+	ofstream outputFile(output);
+
+	// read inputFile to text
+	stringstream s;
+	s << inputFile.rdbuf();
+	string inputString = s.str();
+
+	// extract header
+	stringstream hs;
+	int i = 0;
+	while (inputString[i] != ',' || inputString[i+1] != ','){
+		hs << string(1, inputString[i]);
+		i++;
+	}
+	string headerString = hs.str();
+	i = i + 2;
+
+	// extract data
+	stringstream ds;
+	while (i < inputString.size()){
+		ds << string(1, inputString[i]);
+		i++;
+	}
+	string dataString = ds.str();
+
+	// parse header
+	Dict<string> dictionary;
+	int j = 0;
+	while (j < headerString.size()){
+		char key = headerString[j];
+		cout << key << ": ";
+		j++;
+		stringstream val;
+		while (j < headerString.size() && headerString[j] != ','){
+			val << string(1, headerString[j]);
+			j++;
+		}
+		j++;
+		dictionary.set(key,val.str());
+	}
+	stringstream code;
+	for (int i = 0; i < dataString.size(); i++){
+		code << string(1, dataString[i]);
+		if(dictionary.haveValue(code.str())){
+			outputFile << dictionary.getKeyByValue(code.str());
+			code.str("");
 		}
 	}
-	return data;
 }
 
 int main(int argc, char* argv[]){
-	// string action = argv[1];
-	// string inputFile = argv[2];
-	// string outputFile = argv[3];
-	// Dict<string> c;
-	// c.set('a', "10");
-	// c.set('b', "20");
-	// c.set('c', "30");
+	string action = argv[1];
+	string inputFile = argv[2];
+	string outputFile = argv[3];
 
-	// if (action == "-c"){
-	// 	Node* node = huffman(c);
-	// 	cout << node << endl;
-	// } else if (action == "-d"){
-
-	// } else{
-	// 	cout << "Invalid argument" << endl;
-	// }
-	string data = "absdasabsdasabsdasabsdasabsdas";
-	Dict<int> dictFreq = countFrequency(data);
-	dictFreq.printKeys();
-
-	Node* root = huffman(dictFreq);
-	Dict<string> dictHuffman;
-	string current;
-	dictHuffman = treeToDict(root, dictHuffman, current);
-	dictHuffman.printKeys();
-
-	string code = DataToCode(data, dictHuffman);
-	cout<<code <<endl;
-	data = CodeToData(code, dictHuffman);
-	cout<<data<<endl;
+	if (action == "-c"){
+		Dict<int> dictFreq = countFrequency(inputFile);
+		Node* root = huffman(dictFreq);
+		Dict<string> dictHuffman;
+		string current;
+		dictHuffman = treeToDict(root, dictHuffman, current);
+		encode(inputFile, outputFile, dictHuffman);
+	} else if (action == "-d"){
+		decode(inputFile, outputFile);
+	} else{
+		cout << "Invalid argument" << endl;
+	}
 	return 0;
 }
