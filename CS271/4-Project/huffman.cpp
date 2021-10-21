@@ -8,11 +8,13 @@ using namespace std;
 class Node{
 	public:
 		Node(){
+			key = '';
 			left = nullptr;
 			right = nullptr;
 			freq = new int(0);
 		}
 		Node(int n){
+			key = '';
 			left = nullptr;
 			right = nullptr;
 			freq = &n;
@@ -29,6 +31,7 @@ class Node{
 		Node* left;
 		Node* right;
 		int* freq;
+		char key;
 
 		string toString(){
 			stringstream ss;
@@ -121,8 +124,9 @@ class Dict{
 Node* huffman(Dict<int> dict){
 	int n = dict.size();
 	MinPriorityQueue<Node> q;
-	for (int i = 0; i < dict.size(); i++){
+	for (int i = 0; i < n; i++){
 		Node* tempNode = new Node;
+		tempNode->key = dict.getKey(dict[i]);
 		int* tempInt = new int(dict[i]);
 		tempNode->freq = tempInt;
 		q.insert(tempNode);
@@ -139,11 +143,20 @@ Node* huffman(Dict<int> dict){
 	return q.extractMin();
 }
 
-Dict<string> treeToDict(Node* node){
-	Dict<string> d;
-	while (node->left != nullptr && node->right != nullptr){
-		
+Dict<string> treeToDict(Node* node, Dict<string> dictionary, string current){
+	if (node!= NULL){
+		if (node->left == nullptr && node->right == nullptr){
+			dictionary.set(node->key, current);
+			return dictionary;
+		}
+		current.push_back('0');
+		dictionary = treeToDict(node->left, dictionary, current);
+		current.pop_back();
+		current.push_back('1');
+		dictionary = treeToDict(node->right, dictionary, current);
 	}
+	return dictionary;
+
 }
 
 string DataToCode(string data, Dict<string> dictionary){
