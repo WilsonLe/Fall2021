@@ -84,7 +84,11 @@ class Dict{
 			}
 		}
 
-		char getKey(T val){
+		char getKeyByIndex(int index){
+			return v[index].first;
+		}
+
+		char getKeyByValue(T val){
 			for (int i = 0; i < v.size(); i++){
 				if (v[i].second == val){
 					return v[i].first;
@@ -135,6 +139,18 @@ class Dict{
 			}
 			return out;
 		}
+		// string ToString(){
+		// 	std::stringstream ss;
+		// 	for (int i = 0; i < v.size(); i++){
+		// 		ss << v[i].first<<","<<v[i].second << "\n";
+		// 	}
+		// 	return ss.str();
+		// }
+		void printKeys(){
+			for (int i = 0; i < v.size(); i++){
+				cout<<(v[i].first) <<","<<v[i].second<<endl;
+			}
+		}
 };
 
 Dict<int> countFrequency(string data){
@@ -157,7 +173,8 @@ Node* huffman(Dict<int> dict){
 	MinPriorityQueue<Node> q;
 	for (int i = 0; i < n; i++){
 		Node* tempNode = new Node;
-		tempNode->key = dict.getKey(dict[i]);
+		tempNode->key = dict.getKeyByIndex(i);
+		cout << dict[i]<<endl;
 		int* tempInt = new int(dict[i]);
 		tempNode->freq = tempInt;
 		q.insert(tempNode);
@@ -206,7 +223,7 @@ string CodeToData(string code, Dict<string> dictionary){
 	for (int i=0; i < code.length(); i ++){
 		subcode.push_back(code[i]);
 		if (dictionary.haveValue(subcode)){
-			data.push_back(dictionary.getKey(subcode));
+			data.push_back(dictionary.getKeyByValue(subcode));
 			subcode = "";
 		}
 	}
@@ -230,13 +247,19 @@ int main(int argc, char* argv[]){
 	// } else{
 	// 	cout << "Invalid argument" << endl;
 	// }
-	string data = "sioadfjasdklvnshafgouhjwejklxcnagvygwdufgasjhfgvcastfchgawdvcyw";
+	string data = "absdasabsdasabsdasabsdasabsdas";
 	Dict<int> dictFreq = countFrequency(data);
+	dictFreq.printKeys();
+
 	Node* root = huffman(dictFreq);
 	Dict<string> dictHuffman;
 	string current;
 	dictHuffman = treeToDict(root, dictHuffman, current);
+	dictHuffman.printKeys();
+
 	string code = DataToCode(data, dictHuffman);
 	cout<<code <<endl;
+	data = CodeToData(code, dictHuffman);
+	cout<<data<<endl;
 	return 0;
 }
