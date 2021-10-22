@@ -133,7 +133,7 @@ void decode(string input, string output){
 	}
 }
 void encode2bit(string encoded_string, string output){
-	// Pipieline: encode (return the string) => encode2bit (write to file)
+	// Pipieline: encode (get original string, return the 010101 string) => encode2bit (get 010101 string, translate to bit-string and write to file)
 	ofstream outputFile(output);
 
 	char byte = 0;
@@ -143,7 +143,7 @@ void encode2bit(string encoded_string, string output){
 			byte = byte << 1;
 		}
 		else if (encoded_string[i] == '1'){
-			byte = (byte << 1) & 1;
+			byte = (byte << 1) | 1;
 		}
 		count += 1;
 		if (count == 8){
@@ -164,7 +164,7 @@ string bit2encode(string bit_string){
 	int count = 0;
 	string encoded_string;
 	for (int i=0; i < bit_string.size(); i ++){
-		for (int count=8; count>=0; count--){
+		for (int count=7; count>0; count--){
 			if (bit_string[i] & (1<<count)){
 				encoded_string.push_back('1');
 			}
