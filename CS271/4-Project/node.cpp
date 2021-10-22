@@ -32,25 +32,12 @@ bool operator < (Node left, Node right){
 	return left.freq < right.freq;
 }
 
-std::stringstream& operator<<(std::stringstream& stream, Node node)
-{
-	stream << node.toString();
-	return stream;
-}
 std::ostream& operator<<(std::ostream& stream, Node node)
 {
 	stream << node.toString();
 	return stream;
 }
-std::stringstream& operator<<(std::stringstream& stream, Node* node)
-{
-	if (node != nullptr){
-		stream << node->toString();
-		return stream;
-	}else{
-		return stream;
-	}
-}
+
 std::ostream& operator<<(std::ostream& stream, Node* node)
 {
 	if (node != nullptr){

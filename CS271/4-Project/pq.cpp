@@ -33,7 +33,7 @@ KeyType* MinPriorityQueue<KeyType>::minimum() const
 {
 	if (this->empty())
 	{
-		// EmptyError here
+		throw EmptyError();
 	}
 	return this->A[0];
 }
@@ -43,7 +43,7 @@ KeyType* MinPriorityQueue<KeyType>::extractMin()
 {
 	if (this->heapSize < 1)
 	{
-		// Empty Error here
+		throw EmptyError();
 	}
 	KeyType* minElement = this->A[0];
 	this->A[0] = this->A[heapSize-1];
@@ -55,10 +55,9 @@ KeyType* MinPriorityQueue<KeyType>::extractMin()
 template <class KeyType>
 void MinPriorityQueue<KeyType>::decreaseKey(int index, KeyType* key)
 {
-	// cout<<"decrease"<<endl;
 	if (*(key) < *(this->A[index]))
 	{
-		// KeyError here
+		throw KeyError();
 	}
 	this->A[index] = key;
 	while (index > 0 && *(this->A[parent(index)]) > *(this->A[index]))
@@ -73,10 +72,8 @@ template <class KeyType>
 void MinPriorityQueue<KeyType>::insert(KeyType* key)
 {
 	this->heapSize += 1;
-	// cout<<heapSize<<endl;
 	int inf = ~(1 << 31);
 	KeyType* temp = new KeyType(inf);
-	// temp = &inf;
 	this->A[heapSize-1] = temp;
 	this->decreaseKey(heapSize-1, key);
 }

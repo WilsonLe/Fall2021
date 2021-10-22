@@ -65,19 +65,80 @@ Dict<string> treeToDict(Node* node, Dict<string> dictionary, string current){
 	return dictionary;
 }
 
+pair<string, int> encode2bit(string encoded_string){
+	// Pipieline: encode (get original string, return the 010101 string) => encode2bit (get 010101 string, translate to bit-string and write to file)
+	stringstream bs;
+
+	char byte = 0;
+	int count = 0;
+	for (int i=0; i<encoded_string.size(); i++){
+		if (encoded_string[i] == '0'){
+			byte = byte << 1;
+		}
+		else if (encoded_string[i] == '1'){
+			byte = (byte << 1) | 1;
+		}
+		count += 1;
+		if (count == 8){
+			bs << byte;
+			byte = 0;
+			count = 0;
+		}
+	}
+
+	byte = byte << (8-count);
+	bs << byte;
+	pair<string, int> result (bs.str(), 8 - count);
+	return result;
+}
+
+string bit2encode(string bit_string){
+	char decode_key = 1;
+	int count = 0;
+	stringstream es;
+	// string encoded_string;
+	for (int i=0; i < bit_string.size(); i ++){
+		for (int count=7; count>=0; count--){
+			if (bit_string[i] & (1<<count)){
+				es << '1';
+			}
+			else{
+				es << '0';
+			}
+		}
+	}
+	return es.str();
+}
+
 void encode(string input, string output, Dict<string> dictionary){
-	// Remember to read the input file to 
+	// read input file to inputString
 	ifstream inputFile(input);
 	ofstream outputFile(output);
 	stringstream s;
 	s << inputFile.rdbuf();
 	string inputString = s.str();
-	outputFile << dictionary.toHeader();
+
+	// encode inputString to encodedString
+	stringstream es;
 	for (int i = 0; i < inputString.size(); i++){
 		char character = inputString[i];
-		string encodedString = dictionary.getValue(character);
-		outputFile << encodedString;
+		string encodedChar = dictionary.getValue(character);
+		es << encodedChar;
 	}
+	string encodedString = es.str();
+	// encode
+	pair<string,int> temp = encode2bit(encodedString);
+	string bits = temp.first;
+	int pad = temp.second;
+
+	// append dictionary for decode purposes
+	outputFile << dictionary.toHeader();
+
+	// append padding to outputFile
+	outputFile << pad;
+
+	// convert encodedString to bits and write to outputfile
+	outputFile << bits;
 }
 
 void decode(string input, string output){
@@ -93,19 +154,24 @@ void decode(string input, string output){
 	stringstream hs;
 	int i = 0;
 	while (inputString[i] != ',' || inputString[i+1] != ','){
-		hs << string(1, inputString[i]);
+		const char temp = inputString[i];
+		hs << temp;
 		i++;
 	}
 	string headerString = hs.str();
 	i = i + 2;
 
+	// extract padding
+	int pad = inputString[i] - '0';
+	i++;
+
 	// extract data
 	stringstream ds;
 	while (i < inputString.size()){
-		ds << string(1, inputString[i]);
+		ds << inputString[i];
 		i++;
 	}
-	string dataString = ds.str();
+	string dataBitString = ds.str();
 
 	// parse header to dict
 	Dict<string> dictionary;
@@ -115,66 +181,28 @@ void decode(string input, string output){
 		j++;
 		stringstream val;
 		while (j < headerString.size() && headerString[j] != ','){
-			val << string(1, headerString[j]);
+			val << headerString[j];
 			j++;
 		}
 		j++;
 		dictionary.set(key,val.str());
 	}
+	string dataString = bit2encode(dataBitString);
+
+	// depadding last bit
+	dataString = dataString.substr(0, dataString.size() - pad);
 
 	// decode based on dict
 	stringstream code;
 	for (int i = 0; i < dataString.size(); i++){
-		code << string(1, dataString[i]);
+		code << dataString[i];
 		if(dictionary.haveValue(code.str())){
 			outputFile << dictionary.getKeyByValue(code.str());
 			code.str("");
 		}
 	}
 }
-void encode2bit(string encoded_string, string output){
-	// Pipieline: encode (get original string, return the 010101 string) => encode2bit (get 010101 string, translate to bit-string and write to file)
-	ofstream outputFile(output);
 
-	char byte = 0;
-	int count = 0;
-	for (int i=0; i<encoded_string.size(); i++){
-		if (encoded_string[i] == '0'){
-			byte = byte << 1;
-		}
-		else if (encoded_string[i] == '1'){
-			byte = (byte << 1) | 1;
-		}
-		count += 1;
-		if (count == 8){
-			outputFile << byte;
-			byte = 0;
-			count = 0;
-		}
-	}
-
-	byte = byte << (8-count);
-	outputFile << byte;
-	return;
-}
-
-string bit2encode(string bit_string){
-	//Pipeline: bit2encode(should read file, return string) => decode(write file)
-	char decode_key = 1;
-	int count = 0;
-	string encoded_string;
-	for (int i=0; i < bit_string.size(); i ++){
-		for (int count=7; count>0; count--){
-			if (bit_string[i] & (1<<count)){
-				encoded_string.push_back('1');
-			}
-			else{
-				encoded_string.push_back('0');
-			}
-		}
-	}
-	return encoded_string;
-}
 int main(int argc, char* argv[]){
 	string action = argv[1];
 	string inputFile = argv[2];
