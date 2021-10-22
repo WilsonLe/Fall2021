@@ -24,7 +24,7 @@ MinPriorityQueue<KeyType>::MinPriorityQueue(const MinPriorityQueue<KeyType>& pq)
 { }
 
 /*==========================================================
-minimum()      //construct queue from another queue 
+minimum()      //Return the pointer to minimium value of the heap
 Precondition: Must be given a non-empty priority queue
 Postcondition: The pointer to the minimum element in the queue
 ============================================================*/
@@ -38,6 +38,11 @@ KeyType* MinPriorityQueue<KeyType>::minimum() const
 	return this->A[0];
 }
 
+/*==========================================================
+extractMin()      //Return the minimium value of the heap
+Precondition: Must be given a non-empty priority queue
+Postcondition: The minimum element in the queue
+============================================================*/
 template <class KeyType>
 KeyType* MinPriorityQueue<KeyType>::extractMin()
 {
@@ -52,6 +57,11 @@ KeyType* MinPriorityQueue<KeyType>::extractMin()
 	return minElement;
 }
 
+/*==========================================================
+decreaseKey()      //Decrease value of the given index and maintain the heap
+Precondition: The private array A must be a heap. The value at the given index of the heap must be larger or equal to the given key
+Postcondition: The maintained heap with the new replaced key
+============================================================*/
 template <class KeyType>
 void MinPriorityQueue<KeyType>::decreaseKey(int index, KeyType* key)
 {
@@ -68,6 +78,11 @@ void MinPriorityQueue<KeyType>::decreaseKey(int index, KeyType* key)
 	return;
 }
 
+/*==========================================================
+insert()      //insert a new key into the heap
+Precondition: The private array A must be a heap
+Postcondition: The maintained heap with the new inserted key
+============================================================*/
 template <class KeyType>
 void MinPriorityQueue<KeyType>::insert(KeyType* key)
 {
@@ -78,17 +93,28 @@ void MinPriorityQueue<KeyType>::insert(KeyType* key)
 	this->decreaseKey(heapSize-1, key);
 }
 
+/*==========================================================
+empty()      //Return true if the heap is empty
+Precondition: 
+Postcondition: Return true if the heap is empty and false if the heap is not empty
+============================================================*/
 template <class KeyType>
 bool MinPriorityQueue<KeyType>::empty() const
 {
 	return (this->heapSize == 0);
 }
 
+/*==========================================================
+length()      //Return size of the heap
+Precondition: 
+Postcondition: Return size of the heap
+============================================================*/
 template <class KeyType>
 int MinPriorityQueue<KeyType>::length() const
 {
 	return this->heapSize;
 }
+
 
 template <class KeyType>
 std::string MinPriorityQueue<KeyType>::toString() const

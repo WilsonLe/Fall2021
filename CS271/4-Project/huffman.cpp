@@ -66,7 +66,6 @@ Dict<string> treeToDict(Node* node, Dict<string> dictionary, string current){
 }
 
 pair<string, int> encode2bit(string encoded_string){
-	// Pipieline: encode (get original string, return the 010101 string) => encode2bit (get 010101 string, translate to bit-string and write to file)
 	stringstream bs;
 
 	char byte = 0;
@@ -96,7 +95,6 @@ string bit2encode(string bit_string){
 	char decode_key = 1;
 	int count = 0;
 	stringstream es;
-	// string encoded_string;
 	for (int i=0; i < bit_string.size(); i ++){
 		for (int count=7; count>=0; count--){
 			if (bit_string[i] & (1<<count)){
