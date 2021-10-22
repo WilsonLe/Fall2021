@@ -132,7 +132,49 @@ void decode(string input, string output){
 		}
 	}
 }
+void encode2bit(string encoded_string, string output){
+	// Pipieline: encode (return the string) => encode2bit (write to file)
+	ofstream outputFile(output);
 
+	char byte = 0;
+	int count = 0;
+	for (int i=0; i<encoded_string.size(); i++){
+		if (encoded_string[i] == '0'){
+			byte = byte << 1;
+		}
+		else if (encoded_string[i] == '1'){
+			byte = (byte << 1) & 1;
+		}
+		count += 1;
+		if (count == 8){
+			outputFile << byte;
+			byte = 0;
+			count = 0;
+		}
+	}
+
+	byte = byte << (8-count);
+	outputFile << byte;
+	return;
+}
+
+string bit2encode(string bit_string){
+	//Pipeline: bit2encode(should read file, return string) => decode(write file)
+	char decode_key = 1;
+	int count = 0;
+	string encoded_string;
+	for (int i=0; i < bit_string.size(); i ++){
+		for (int count=8; count>=0; count--){
+			if (bit_string[i] & (1<<count)){
+				encoded_string.push_back('1');
+			}
+			else{
+				encoded_string.push_back('0');
+			}
+		}
+	}
+	return encoded_string;
+}
 int main(int argc, char* argv[]){
 	string action = argv[1];
 	string inputFile = argv[2];
