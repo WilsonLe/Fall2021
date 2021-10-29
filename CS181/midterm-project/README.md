@@ -20,5 +20,24 @@ https://ai.stanford.edu/~amaas/data/sentiment/
 
 * To classify, or, "tag" the part of speech of a body of text, we will use python's NLTK library. We will first tokenize the body of text, then apply NLTK's part of speech tagging method to classify each word's part of speech.
 
+# Get started
 
+folder structure should be as the follwing:
 
+midterm-project
+	|
+	|---dataset
+	|-----test
+	|-------neg
+	|---------*.txt
+	|-------pos
+	|---------*.txt
+	|-----train
+	|-------neg
+	|---------*.txt
+	|-------pos
+	|---------*.txt
+	|-----main.ipynb
+	|-----neg.csv
+	|-----pos.csv
+	|-----README.md
