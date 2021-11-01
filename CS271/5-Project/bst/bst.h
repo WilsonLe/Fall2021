@@ -18,6 +18,7 @@ class BST{
 	friend void testBSTDestructor();
 	friend void testBSTInsert();
 	friend string Dict<K, D>::toString();
+
 	public:
 		BST();
 		BST(Node<K, D> root);

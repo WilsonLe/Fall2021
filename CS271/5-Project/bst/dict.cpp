@@ -9,6 +9,11 @@ Dict<K, D>::Dict(){
 }
 
 template <class K, class D>
+Dict<K, D>::~Dict(){
+	delete this->bst;
+}
+
+template <class K, class D>
 void Dict<K, D>::insert(K k, D d){
 	this->bst->insert(new Node<K, D>(k, d));
 }

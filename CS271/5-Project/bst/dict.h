@@ -4,8 +4,11 @@
 
 template <class K, class D>
 class Dict{
+	friend void testDictDestructor();
 	public:
 		Dict();
+		
+		~Dict();
 
 		// insert data into list
 		void insert(K k, D d);
