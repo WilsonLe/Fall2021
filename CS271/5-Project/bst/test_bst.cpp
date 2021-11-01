@@ -2,6 +2,7 @@
 #include <string>
 #include <assert.h>
 #include "bst.h"
+#include "dict.h"
 
 using namespace std;
 
@@ -323,6 +324,69 @@ void testBSTRemove(){
 	cout << "\tTest 6 Passed" << endl;
 };
 
+void testDictConstructor(){
+	cout << "Testing Dict Constructor" << endl;
+	Dict<string, int> d;
+	assert(d.toString() == "{\n}");
+	cout << "\t Test 1 Passed" << endl;
+}
+
+void testDictInsert(){
+	cout << "Testing Dict Insert" << endl;
+	Dict<string, int> d;
+	d.insert("key1", 20);
+	d.insert("key2", 20);
+	assert(d.toString() == "{\n\tkey1: 20,\n\tkey2: 20,\n}");
+	cout << "\tTest 1 Passed" << endl;
+	d.insert("key0", 20);
+	assert(d.toString() == "{\n\tkey0: 20,\n\tkey1: 20,\n\tkey2: 20,\n}");
+	cout << "\tTest 2 Passed" << endl;
+	d.insert("key3", 20);
+	assert(d.toString() == "{\n\tkey0: 20,\n\tkey1: 20,\n\tkey2: 20,\n\tkey3: 20,\n}");
+	cout << "\tTest 3 Passed" << endl;
+}
+
+void testDictRemove(){
+	cout << "Testing Dict Remove" << endl;
+	Dict<string, int> d;
+	d.insert("key1", 20);
+	d.insert("key2", 20);
+	d.insert("key0", 20);
+	d.remove("key0");
+	assert(d.toString() == "{\n\tkey1: 20,\n\tkey2: 20,\n}");
+	cout << "\tTest 1 Passed" << endl;
+	d.remove("key2");
+	assert(d.toString() == "{\n\tkey1: 20,\n}");
+	cout << "\tTest 2 Passed" << endl;
+	d.remove("key1");
+	assert(d.toString() == "{\n}");
+	cout << "\tTest 3 Passed" << endl;
+};
+
+void testDictGet(){
+	cout << "Testing Dict Get" << endl;
+	Dict<string, int> d;
+	d.insert("key1", 20);
+	d.insert("key2", 20);
+	d.insert("key0", 20);
+	assert(d.get("key1") == 20);
+	cout << "\tTest 1 Passed" << endl;
+	assert(d.get("key2") == 20);
+	cout << "\tTest 2 Passed" << endl;
+	assert(d.get("key0") == 20);
+	cout << "\tTest 3 Passed" << endl;
+};
+
+void testDictEmpty(){
+	cout << "Testing Dict Empty" << endl;
+	Dict<string, int> d;
+	assert(d.empty() == true);
+	cout << "\tTest 1 Passed" << endl;
+	d.insert("hello", 10);
+	assert(d.empty() == false);
+	cout << "\tTest 2 Passed" << endl;
+}
+
 int main(){
 	testNodeConstructors();
 	testNodeDestructor();
@@ -338,5 +402,10 @@ int main(){
 	testBSTPreOrder();
 	testBSTPostOrder();
 	testBSTRemove();
+	testDictConstructor();
+	testDictInsert();
+	testDictRemove();
+	testDictGet();
+	testDictEmpty();
 	return 0;
 }

@@ -8,11 +8,16 @@
 // error when get(key) does not exist in BST
 class KeyNotExist{};
 
+// temporary declaration of Dict for friend function
+template <class K, class D>
+class Dict;
+
 template <class K, class D>
 class BST{
 	friend void testBSTConstructors();
 	friend void testBSTDestructor();
 	friend void testBSTInsert();
+	friend string Dict<K, D>::toString();
 	public:
 		BST();
 		BST(Node<K, D> root);
@@ -54,7 +59,7 @@ class BST{
 		// return tree in readable string format
 		string toString();
 	private:
-		Node<K, D>* root;
+		Node<K, D> *root;
 		// utility function for in order traversal
 		void inOrderWalk(Node<K, D> *r, vector<Node<K, D>*> &a);
 		// utility function for in preorder traversal
