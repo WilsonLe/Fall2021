@@ -7,7 +7,6 @@ using namespace std;
 
 void testNodeConstructors(){
 	cout << "Testing Node Constructors" << endl;
-
 	Node<string, int> n1;
 	n1.key = new string("hello");
 	n1.data = new int(100);
@@ -55,6 +54,16 @@ void testBSTConstructors(){
 	cout << "\tTest 4 Passed" << endl;
 }
 
+void testBSTDestructor(){
+	cout << "Testing BST Constructors" << endl;
+	BST<string, int> *bst1 = new BST<string, int>(new Node<string, int>(string("hello"), int(100)));
+	bst1->destroy();
+	cout << "\tTest 1 Passed" << endl;
+	BST<string, int> *bst2 = new BST<string, int>(new Node<string, int>(string("world"), int(200)));
+	bst2->destroy();
+	cout << "\tTest 2 Passed" << endl;
+}
+
 void testBSTInsert(){
 	cout << "Testing BST Insert" << endl;
 	BST<string, int> bst1;
@@ -69,7 +78,8 @@ void testBSTInsert(){
 	bst2.insert(new Node<string, int>(string("key2"), int(2)));
 	bst2.insert(new Node<string, int>(string("key1"), int(3)));
 	bst2.insert(new Node<string, int>(string("key4"), int(4)));
-	assert(bst2.toString() == "key3(key2(key1))(key4)");
+	bst2.insert(new Node<string, int>(string("key4"), int(4)));
+	assert(bst2.toString() == "key3(key2(key1))(key4(key4))");
 	cout << "\tTest 2 Passed" << endl;
 }
 
@@ -81,7 +91,6 @@ void testBSTGet(){
 	bst1.insert(new Node<string, int>(string("key3"), int(3)));
 	bst1.insert(new Node<string, int>(string("key4"), int(4)));
 	bst1.insert(new Node<string, int>(string("key1"), int(4)));
-
 	Node<string, int> *n1 = bst1.get("key1");
 	assert(*(n1->key) == "key1");
 	assert(*(n1->data) == 1);
@@ -224,7 +233,7 @@ void testBSTInOrder(){
 }
 
 void testBSTPreOrder(){
-	cout << "Testing BST In Order" << endl;
+	cout << "Testing BST Pre Order" << endl;
 	BST<string, int> bst1;
 	bst1.insert(new Node<string, int>(string("key3"), int(3)));
 	bst1.insert(new Node<string, int>(string("key5"), int(5)));
@@ -255,7 +264,7 @@ void testBSTPreOrder(){
 }
 
 void testBSTPostOrder(){
-	cout << "Testing BST In Order" << endl;
+	cout << "Testing BST Post Order" << endl;
 	BST<string, int> bst1;
 	bst1.insert(new Node<string, int>(string("key3"), int(3)));
 	bst1.insert(new Node<string, int>(string("key5"), int(5)));
@@ -285,10 +294,40 @@ void testBSTPostOrder(){
 	cout << "\tTest 3 Passed" << endl;
 }
 
+void testBSTRemove(){
+	cout << "Testing BST Delete" << endl;
+	BST<string, int> bst1;
+	bst1.insert(new Node<string, int>(string("key3"), int(3)));
+	bst1.insert(new Node<string, int>(string("key5"), int(5)));
+	bst1.insert(new Node<string, int>(string("key2"), int(2)));
+	bst1.insert(new Node<string, int>(string("key4"), int(4)));
+	bst1.insert(new Node<string, int>(string("key1"), int(1)));
+	bst1.insert(new Node<string, int>(string("key0"), int(0)));
+	bst1.remove("key4");
+	assert(bst1.toString() == "key3(key2(key1(key0)))(key5)");
+	cout << "\tTest 1 Passed" << endl;
+	bst1.remove("key3");
+	assert(bst1.toString() == "key5(key2(key1(key0)))");
+	cout << "\tTest 2 Passed" << endl;
+	bst1.remove("key1");
+	assert(bst1.toString() == "key5(key2(key0))");
+	cout << "\tTest 3 Passed" << endl;
+	bst1.remove("key2");
+	assert(bst1.toString() == "key5(key0)");
+	cout << "\tTest 4 Passed" << endl;
+	bst1.remove("key5");
+	assert(bst1.toString() == "key0");
+	cout << "\tTest 5 Passed" << endl;
+	bst1.remove("key0");
+	assert(bst1.toString() == "");
+	cout << "\tTest 6 Passed" << endl;
+};
+
 int main(){
 	testNodeConstructors();
 	testNodeDestructor();
 	testBSTConstructors();
+	testBSTDestructor();
 	testBSTInsert();
 	testBSTGet();
 	testBSTMax();
@@ -298,5 +337,6 @@ int main(){
 	testBSTInOrder();
 	testBSTPreOrder();
 	testBSTPostOrder();
+	testBSTRemove();
 	return 0;
 }

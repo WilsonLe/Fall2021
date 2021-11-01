@@ -8,15 +8,10 @@
 // error when get(key) does not exist in BST
 class KeyNotExist{};
 
-// error when tree node has no predecessor
-class PredecessorNotExist{};
-
-// error when tree node has no successor
-class SuccessorNotExist{};
-
 template <class K, class D>
 class BST{
 	friend void testBSTConstructors();
+	friend void testBSTDestructor();
 	friend void testBSTInsert();
 	public:
 		BST();
@@ -33,7 +28,7 @@ class BST{
 		void insert(Node<K, D> *n);
 
 		// delete first item with key == k
-		void remove(K& k); 
+		void remove(K k);
 
 		// return Node with max key
 		Node<K, D> *maximum();
@@ -61,13 +56,15 @@ class BST{
 	private:
 		Node<K, D>* root;
 		// utility function for in order traversal
-		void inOrderWalk(Node<K, D> *r, vector<string> &a);
+		void inOrderWalk(Node<K, D> *r, vector<Node<K, D>*> &a);
 		// utility function for in preorder traversal
-		void preOrderWalk(Node<K, D> *r, vector<string> &a);
+		void preOrderWalk(Node<K, D> *r, vector<Node<K, D>*> &a);
 		// utility function for in postorder traversal
-		void postOrderWalk(Node<K, D> *r, vector<string> &a);
+		void postOrderWalk(Node<K, D> *r, vector<Node<K, D>*> &a);
 		// utility method for toString method()
 		void treeToString(Node<K, D> *r, string &s);
+		// utility method for delete
+		void transplant(Node<K, D> *u, Node<K, D> *v);
 		// utility method for deallocating bst
 		void destroy();
 };

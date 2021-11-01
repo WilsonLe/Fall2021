@@ -32,7 +32,12 @@ BST<K, D>::~BST(){
 // Deallocate all node in BST
 template<class K, class D>
 void BST<K, D>::destroy(){
-	// iterate through all node in tree, delete each one of them
+	vector<Node<K, D>*> nodePtrs;
+	this->postOrderWalk(this->root, nodePtrs);
+	for (int i = 0; i < nodePtrs.size(); i++){
+		delete nodePtrs[i];
+	}
+	this->root = nullptr;
 };
 
 // return true if empty, false otherwise
@@ -145,11 +150,7 @@ Node<K, D>* BST<K, D>::successor(K k){
 		currentNode = suc;
 		suc = suc->parent;
 	}
-	if (suc == nullptr){
-		throw SuccessorNotExist();
-	}else{
-		return suc;
-	}
+	return suc;
 };
 
 // return the predecessor pointer of Node
@@ -168,33 +169,29 @@ Node<K, D>* BST<K, D>::predecessor(K k){
 		currentNode = pre;
 		pre = pre->parent;
 	}
-	if (pre == nullptr){
-		throw PredecessorNotExist();
-	}else{
-		return pre;
-	}
+	return pre;
 };
 
 // return items string from an in order traversal
 template <class K, class D>
 string BST<K, D>::inOrder(){
 	stringstream ss;
-	vector<string> a;
+	vector<Node<K, D>*> a;
 	this->inOrderWalk(this->root, a);
 	ss << "[";
 	for (int i = 0; i < a.size() - 1; i++){
-		ss << a[i] << ", ";
+		ss << *(a[i]->key) << ", ";
 	}
-	ss << a[a.size() - 1] << "]";
+	ss << *(a[a.size() - 1]->key) << "]";
 	return ss.str();
 };
 
 // utility function for in order traversal
 template <class K, class D>
-void BST<K, D>::inOrderWalk(Node<K, D> *r, vector<string> &a){
+void BST<K, D>::inOrderWalk(Node<K, D> *r, vector<Node<K, D>*> &a){
 	if (r != nullptr){
 		this->inOrderWalk(r->left, a);
-		a.push_back(*(r->key));
+		a.push_back(r);
 		this->inOrderWalk(r->right, a);
 	}
 };
@@ -203,21 +200,21 @@ void BST<K, D>::inOrderWalk(Node<K, D> *r, vector<string> &a){
 template <class K, class D>
 string BST<K, D>::preOrder(){
 	stringstream ss;
-	vector<string> a;
+	vector<Node<K, D>*> a;
 	this->preOrderWalk(this->root, a);
 	ss << "[";
 	for (int i = 0; i < a.size() - 1; i++){
-		ss << a[i] << ", ";
+		ss << *(a[i]->key) << ", ";
 	}
-	ss << a[a.size() - 1] << "]";
+	ss << *(a[a.size() - 1]->key) << "]";
 	return ss.str();
 };
 
 // utility function for pre order traversal
 template <class K, class D>
-void BST<K, D>::preOrderWalk(Node<K, D> *r, vector<string> &a){
+void BST<K, D>::preOrderWalk(Node<K, D> *r, vector<Node<K, D>*> &a){
 	if (r != nullptr){
-		a.push_back(*(r->key));
+		a.push_back(r);
 		this->preOrderWalk(r->left, a);
 		this->preOrderWalk(r->right, a);
 	}
@@ -227,23 +224,59 @@ void BST<K, D>::preOrderWalk(Node<K, D> *r, vector<string> &a){
 template <class K, class D>
 string BST<K, D>::postOrder(){
 	stringstream ss;
-	vector<string> a;
+	vector<Node<K, D>*> a;
 	this->postOrderWalk(this->root, a);
 	ss << "[";
 	for (int i = 0; i < a.size() - 1; i++){
-		ss << a[i] << ", ";
+		ss << *(a[i]->key) << ", ";
 	}
-	ss << a[a.size() - 1] << "]";
+	ss << *(a[a.size() - 1]->key) << "]";
 	return ss.str();
 };
 
 // utility function for post order traversal
 template <class K, class D>
-void BST<K, D>::postOrderWalk(Node<K, D> *r, vector<string> &a){
+void BST<K, D>::postOrderWalk(Node<K, D> *r, vector<Node<K, D>*> &a){
 	if (r != nullptr){
 		this->postOrderWalk(r->left, a);
 		this->postOrderWalk(r->right, a);
-		a.push_back(*(r->key));
+		a.push_back(r);
+	}
+};
+
+// remove first item with key == k
+template <class K, class D>
+void BST<K, D>::remove(K k){
+	Node<K, D> *n = this->get(k);
+	if (n->left == nullptr){
+		this->transplant(n, n->right);
+	} else if (n->right == nullptr){
+		this->transplant(n, n->left);
+	} else{
+		Node<K, D> *suc = this->successor(*(n->key));
+		if (suc->parent != n){
+			this->transplant(suc, suc->right);
+			suc->right = n->right;
+			suc->right->parent = suc;
+		}
+		this->transplant(n, suc);
+		suc->left = n->left;
+		suc->left->parent = suc;
+	}
+};
+
+// utility method for remove
+template <class K, class D>
+void BST<K, D>::transplant(Node<K, D> *u, Node<K, D> *v){
+	if (u->parent == nullptr){
+		this->root = v;
+	} else if (u == u->parent->left){
+		u->parent->left = v;
+	} else {
+		u->parent->right = v;
+	}
+	if (v != nullptr){
+		v->parent = u->parent;
 	}
 };
 
