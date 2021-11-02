@@ -407,5 +407,6 @@ int main(){
 	testDictRemove();
 	testDictGet();
 	testDictEmpty();
+	testMovieTitles();
 	return 0;
 }
