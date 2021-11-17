@@ -65,8 +65,9 @@ Postcondition: The maintained heap with the new replaced key
 template <class KeyType>
 void MinPriorityQueue<KeyType>::decreaseKey(int index, KeyType* key)
 {
-	if (*(key) < *(this->A[index]))
+	if (*(key) > *(this->A[index]))
 	{
+		cout << "key: " << *(key) << " " << "index: "<< *(this->A[index]) << endl;
 		throw KeyError();
 	}
 	this->A[index] = key;

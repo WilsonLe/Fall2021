@@ -2,11 +2,42 @@ For your progress check-in, you should submit a one to two paragraph summary of 
 
 # Progress Checkin
 
-The question we want to answer is that what is the most common adjective in a positive movie review, and in a negative movie review. To achieve this, we will download a database of imdb movie review: 
+The question we want to answer is that what is the most common adjective in a positive movie review, and in a negative movie review.
+
+To answer the question, we will use a dataset (that contains multiple datasets) of imdb movie review at this link:
 
 https://ai.stanford.edu/~amaas/data/sentiment/
 
-This dataset has already classified which review is positive or negative, but in folders of txt files. We will use regular expression to match all the txt file names, then iterate throught the txt files and create a pandas DataFrame out of it. Then, we define the part of speed of the reviews (which word is noun, adjective, verb, etc.), then count its frequencies. The adjectives with the highest frequency will be considered the most common adjective in a positive/negative review.
+* This dataset has already classified which review is positive or negative, but in folders of txt files. 
 
-To classify, or, "tag" the part of speech of a body of text, we will use python's NLTK library. We will first tokenize the body of text, then apply NLTK's part of speech tagging method to classify each word's part of speech.
+* We will use regular expression to match all the txt file names, then iterate throught the txt files.
 
+* While iterating through txt files, we are going to parse the txt files to csv files.
+
+* Then from the csv files, we are going to create pandas DataFrames out of it.
+
+* Then, we define the part of speed of the reviews (which word is noun, adjective, verb, etc.), then count its frequencies. The adjectives with the highest frequency will be considered the most common adjective in a positive/negative review.
+
+* To classify, or, "tag" the part of speech of a body of text, we will use python's NLTK library. We will first tokenize the body of text, then apply NLTK's part of speech tagging method to classify each word's part of speech.
+
+# Get started
+
+folder structure should be as the follwing:
+
+midterm-project
+	|
+	|---dataset
+	|-----test
+	|-------neg
+	|---------*.txt
+	|-------pos
+	|---------*.txt
+	|-----train
+	|-------neg
+	|---------*.txt
+	|-------pos
+	|---------*.txt
+	|-----main.ipynb
+	|-----neg.csv
+	|-----pos.csv
+	|-----README.md
