@@ -11,13 +11,13 @@ class Dict{
 		~Dict();
 
 		// insert data into list
-		void insert(Key k, Value v);
+		void insert(KeyValue *kv);
 
 		// get data from list
-		Value* get(Key k);
+		KeyValue* get(const KeyValue& kv);
 
 		// remove data from list
-		void remove(Key k);
+		void remove(const KeyValue& kv);
 
 		// check if dictionary empty
 		bool empty();
