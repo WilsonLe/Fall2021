@@ -110,7 +110,8 @@
 		"thread": "cpp",
 		"typeindex": "cpp",
 		"__availability": "cpp",
-		"filesystem": "cpp"
+		"filesystem": "cpp",
+		"version": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }

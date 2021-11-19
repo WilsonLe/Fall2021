@@ -257,12 +257,16 @@ std::string List<T>::toString() const
 {
 	std::stringstream ss;
 	Node<T> *node = head;
-	
-	while (node != NULL)
+	ss << "[";
+	while (node != nullptr && node->next != nullptr)
 	{
-		ss << *(node->item) << " ";
+		ss << *(node->item) << ", ";
 		node = node->next;
 	}
+	if (node != nullptr){
+		ss << *(node->item);
+	}
+	ss << "]";
 	return ss.str();
 }
 

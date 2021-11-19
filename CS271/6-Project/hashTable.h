@@ -6,6 +6,8 @@
 template <class KeyType>
 class HashTable
 {
+	friend void testHtConstructor();
+	friend void testHtClone();
 public:
     HashTable(int numSlots);
     HashTable(const HashTable<KeyType>& h);

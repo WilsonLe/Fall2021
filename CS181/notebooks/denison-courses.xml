@@ -1,0 +1,831 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<school>
+  <departments>
+    <department id="CINE">
+      <name>Cinema</name>
+      <division>Fine Arts</division>
+      <chair id="9042">
+        <lastname>Rice</lastname>
+        <firstname>Theresa</firstname>
+      </chair>
+    </department>
+    <department id="MATH">
+      <name>Mathematics &amp; Computer Science</name>
+      <division>Natural Sciences</division>
+      <chair id="9140">
+        <lastname>Bradley</lastname>
+        <firstname>Betty</firstname>
+      </chair>
+      <subject id="CS" name="Computer Science"/>
+      <subject id="MATH" name="Mathematics"/>
+    </department>
+  </departments>
+  <courses>
+    <course subject="CINE" num="104">
+      <title>Film Aesthetics/Analysis</title>
+      <hours>4.0</hours>
+      <class id="40371">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>13:30-14:20 MWF</meeting>
+        <instructorid>9273</instructorid>
+      </class>
+      <class id="40372">
+        <term>FALL</term>
+        <section>02</section>
+        <meeting>10:30-11:20 MWF</meeting>
+        <instructorid>9097</instructorid>
+      </class>
+      <class id="21636">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>10:30-11:20 MWF</meeting>
+        <instructorid>9097</instructorid>
+      </class>
+    </course>
+    <course subject="CINE" num="219">
+      <title>Elementary Cinema Prod</title>
+      <hours>4.0</hours>
+      <class id="40373">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>13:30-16:20 R</meeting>
+        <instructorid>9284</instructorid>
+      </class>
+      <class id="21638">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>13:30-14:50 TR</meeting>
+        <instructorid>9284</instructorid>
+      </class>
+    </course>
+    <course subject="CINE" num="310">
+      <title>Intermediate Cinema Prod</title>
+      <hours>4.0</hours>
+      <class id="40374">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>14:30-17:20 W</meeting>
+        <instructorid>9284</instructorid>
+      </class>
+      <class id="21640">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>14:30-17:20 W</meeting>
+        <instructorid>9284</instructorid>
+      </class>
+    </course>
+    <course subject="CINE" num="326">
+      <title>History of Cinema</title>
+      <hours>4.0</hours>
+      <class id="21642">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>12:30-13:20 MWF</meeting>
+        <instructorid>9097</instructorid>
+      </class>
+    </course>
+    <course subject="CINE" num="361">
+      <title>Directed Study</title>
+      <hours>4.0</hours>
+    </course>
+    <course subject="CINE" num="362">
+      <title>Directed Study</title>
+      <hours>4.0</hours>
+    </course>
+    <course subject="CINE" num="363">
+      <title>Independent Study</title>
+      <hours>4.0</hours>
+    </course>
+    <course subject="CINE" num="364">
+      <title>Independent Study</title>
+      <hours>4.0</hours>
+    </course>
+    <course subject="CINE" num="407">
+      <title>Documentary/Theory &amp; Prac</title>
+      <hours>4.0</hours>
+      <class id="40375">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>10:00-11:20 TR</meeting>
+        <instructorid>9042</instructorid>
+      </class>
+    </course>
+    <course subject="CINE" num="408">
+      <title>Adv Topics Film Aesthetics</title>
+      <hours>1.0</hours>
+      <class id="21647">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>13:30-14:20 MWF</meeting>
+        <instructorid>9097</instructorid>
+      </class>
+      <class id="21890">
+        <term>SPRING</term>
+        <section>85</section>
+        <meeting>None</meeting>
+        <instructorid>9097</instructorid>
+      </class>
+    </course>
+    <course subject="CINE" num="410">
+      <title>Advanced Cinema Production</title>
+      <hours>4.0</hours>
+      <class id="21648">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>13:30-16:50 TR</meeting>
+        <instructorid>9042</instructorid>
+      </class>
+    </course>
+    <course subject="CINE" num="412">
+      <title>Theory of Cinema</title>
+      <hours>1.0</hours>
+      <class id="40376">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>12:30-13:20 MWF</meeting>
+        <instructorid>9273</instructorid>
+      </class>
+      <class id="41007">
+        <term>FALL</term>
+        <section>85</section>
+        <meeting>12:30-13:20 MWF</meeting>
+        <instructorid>9273</instructorid>
+      </class>
+    </course>
+    <course subject="CINE" num="419">
+      <title>Cinema Workshop</title>
+      <hours>4.0</hours>
+      <class id="40377">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>13:30-16:20 T</meeting>
+        <instructorid>9284</instructorid>
+      </class>
+      <class id="21652">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>14:30-16:50 W</meeting>
+        <instructorid>9042</instructorid>
+      </class>
+    </course>
+    <course subject="CINE" num="451">
+      <title>Senior Research</title>
+      <hours>4.0</hours>
+    </course>
+    <course subject="CINE" num="452">
+      <title>Senior Research</title>
+      <hours>4.0</hours>
+    </course>
+    <course subject="CS" num="110">
+      <title>Computing/Digital Media</title>
+      <hours>4.0</hours>
+      <class id="40336">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>10:30-11:20 MWRF</meeting>
+        <instructorid>9031</instructorid>
+      </class>
+      <class id="40744">
+        <term>FALL</term>
+        <section>02</section>
+        <meeting>08:30-09:20 MWRF</meeting>
+        <instructorid>9031</instructorid>
+      </class>
+      <class id="21709">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>10:30-11:20 MWRF</meeting>
+        <instructorid>9031</instructorid>
+      </class>
+    </course>
+    <course subject="CS" num="111">
+      <title>Computing for Scientific Disc</title>
+      <hours>4.0</hours>
+      <class id="40338">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>09:30-10:20 MWRF</meeting>
+        <instructorid>9106</instructorid>
+      </class>
+      <class id="21710">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>12:30-13:20 MTWF</meeting>
+        <instructorid>9106</instructorid>
+      </class>
+    </course>
+    <course subject="CS" num="173">
+      <title>Intermediate Computer Science</title>
+      <hours>4.0</hours>
+      <class id="21711">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>11:30-12:20 MTWF</meeting>
+        <instructorid>9106</instructorid>
+      </class>
+    </course>
+    <course subject="CS" num="174">
+      <title>Discrete Math for CS</title>
+      <hours>4.0</hours>
+      <class id="21712">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>09:30-10:20 MWRF</meeting>
+        <instructorid>9077</instructorid>
+      </class>
+    </course>
+    <course subject="CS" num="215">
+      <title>Technical Comm I</title>
+      <hours>1.0</hours>
+      <class id="21776">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>18:00-20:00 T</meeting>
+        <instructorid>9160</instructorid>
+      </class>
+    </course>
+    <course subject="CS" num="271">
+      <title>Data Structures</title>
+      <hours>4.0</hours>
+      <class id="40339">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>10:30-11:20 MWRF</meeting>
+        <instructorid>9106</instructorid>
+      </class>
+    </course>
+    <course subject="CS" num="275">
+      <title>Elementary Graph Theory</title>
+      <hours>4.0</hours>
+      <class id="21713">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>13:30-14:20 MTWF</meeting>
+        <instructorid>9231</instructorid>
+      </class>
+    </course>
+    <course subject="CS" num="281">
+      <title>Computer Organization</title>
+      <hours>4.0</hours>
+      <class id="21714">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>08:30-09:20 MWF</meeting>
+        <instructorid>9031</instructorid>
+      </class>
+    </course>
+    <course subject="CS" num="334">
+      <title>Theory of Computation</title>
+      <hours>4.0</hours>
+      <class id="40340">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>11:30-12:20 MTWF</meeting>
+        <instructorid>9171</instructorid>
+      </class>
+    </course>
+    <course subject="CS" num="361">
+      <title>Directed Study</title>
+      <hours>4.0</hours>
+    </course>
+    <course subject="CS" num="362">
+      <title>Directed Study</title>
+      <hours>4.0</hours>
+      <class id="21717">
+        <term>SPRING</term>
+        <section>90</section>
+        <meeting>None</meeting>
+      </class>
+      <class id="21969">
+        <term>SPRING</term>
+        <section>08</section>
+        <meeting>None</meeting>
+        <instructorid>9140</instructorid>
+      </class>
+    </course>
+    <course subject="CS" num="363">
+      <title>Independent Study</title>
+      <hours>4.0</hours>
+    </course>
+    <course subject="CS" num="364">
+      <title>Independent Study</title>
+      <hours>4.0</hours>
+    </course>
+    <course subject="CS" num="372">
+      <title>Operating Systems</title>
+      <hours>4.0</hours>
+      <class id="40343">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>13:30-14:20 MWRF</meeting>
+        <instructorid>9031</instructorid>
+      </class>
+    </course>
+    <course subject="CS" num="373">
+      <title>Programming Languages</title>
+      <hours>4.0</hours>
+      <class id="21764">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>09:30-10:20 MWRF</meeting>
+        <instructorid>9140</instructorid>
+      </class>
+    </course>
+    <course subject="CS" num="451">
+      <title>Senior Research</title>
+      <hours>4.0</hours>
+      <class id="40344">
+        <term>FALL</term>
+        <section>90</section>
+        <meeting>None</meeting>
+      </class>
+      <class id="40951">
+        <term>FALL</term>
+        <section>06</section>
+        <meeting>None</meeting>
+        <instructorid>9106</instructorid>
+      </class>
+    </course>
+    <course subject="CS" num="452">
+      <title>Senior Research</title>
+      <hours>4.0</hours>
+      <class id="21719">
+        <term>SPRING</term>
+        <section>90</section>
+        <meeting>None</meeting>
+      </class>
+      <class id="21845">
+        <term>SPRING</term>
+        <section>06</section>
+        <meeting>None</meeting>
+        <instructorid>9106</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="97">
+      <title>Math Placement Waiver</title>
+      <hours>0.0</hours>
+      <class id="40902">
+        <term>FALL</term>
+        <section>97</section>
+        <meeting>None</meeting>
+      </class>
+    </course>
+    <course subject="MATH" num="102">
+      <title>Elements of Statistics</title>
+      <hours>4.0</hours>
+      <class id="40318">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>11:30-12:20 MWF</meeting>
+        <instructorid>9059</instructorid>
+      </class>
+      <class id="40319">
+        <term>FALL</term>
+        <section>02</section>
+        <meeting>13:30-14:20 MWF</meeting>
+        <instructorid>9059</instructorid>
+      </class>
+      <class id="40320">
+        <term>FALL</term>
+        <section>03</section>
+        <meeting>12:30-13:20 MWF</meeting>
+        <instructorid>9059</instructorid>
+      </class>
+      <class id="21720">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>12:30-13:20 MWF</meeting>
+        <instructorid>9059</instructorid>
+      </class>
+      <class id="21721">
+        <term>SPRING</term>
+        <section>02</section>
+        <meeting>14:30-15:20 MWF</meeting>
+        <instructorid>9059</instructorid>
+      </class>
+      <class id="21722">
+        <term>SPRING</term>
+        <section>03</section>
+        <meeting>11:30-12:20 MWF</meeting>
+        <instructorid>9059</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="121">
+      <title>Essentials of Calculus</title>
+      <hours>4.0</hours>
+      <class id="40321">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>08:30-09:20 MWRF</meeting>
+        <instructorid>9024</instructorid>
+      </class>
+      <class id="40322">
+        <term>FALL</term>
+        <section>02</section>
+        <meeting>09:30-10:20 MWRF</meeting>
+        <instructorid>9024</instructorid>
+      </class>
+      <class id="40323">
+        <term>FALL</term>
+        <section>03</section>
+        <meeting>10:30-11:20 MWRF</meeting>
+        <instructorid>9024</instructorid>
+      </class>
+      <class id="21723">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>11:30-12:20 MTWF</meeting>
+        <instructorid>9231</instructorid>
+      </class>
+      <class id="21780">
+        <term>SPRING</term>
+        <section>02</section>
+        <meeting>10:30-11:20 MWRF</meeting>
+        <instructorid>9024</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="123">
+      <title>Calculus I (Single Variable)</title>
+      <hours>4.0</hours>
+      <class id="40324">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>08:30-09:20 MWRF</meeting>
+        <instructorid>9279</instructorid>
+      </class>
+      <class id="40325">
+        <term>FALL</term>
+        <section>02</section>
+        <meeting>09:30-10:20 MWRF</meeting>
+        <instructorid>9279</instructorid>
+      </class>
+      <class id="40326">
+        <term>FALL</term>
+        <section>03</section>
+        <meeting>10:30-11:20 MWRF</meeting>
+        <instructorid>9279</instructorid>
+      </class>
+      <class id="21724">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>08:30-09:20 MWRF</meeting>
+        <instructorid>9077</instructorid>
+      </class>
+      <class id="21781">
+        <term>SPRING</term>
+        <section>02</section>
+        <meeting>10:30-11:20 MWRF</meeting>
+        <instructorid>9077</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="124">
+      <title>Calculus II (Multivariable)</title>
+      <hours>4.0</hours>
+      <class id="40327">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>10:30-11:20 MWRF</meeting>
+        <instructorid>9192</instructorid>
+      </class>
+      <class id="40328">
+        <term>FALL</term>
+        <section>02</section>
+        <meeting>12:30-13:20 MTWF</meeting>
+        <instructorid>9160</instructorid>
+      </class>
+      <class id="21725">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>08:30-09:20 MWRF</meeting>
+        <instructorid>9024</instructorid>
+      </class>
+      <class id="21727">
+        <term>SPRING</term>
+        <section>02</section>
+        <meeting>09:30-10:20 MWRF</meeting>
+        <instructorid>9024</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="210">
+      <title>Intro Proof Techniques</title>
+      <hours>4.0</hours>
+      <class id="40329">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>11:30-12:20 MTWF</meeting>
+        <instructorid>9160</instructorid>
+      </class>
+      <class id="40755">
+        <term>FALL</term>
+        <section>02</section>
+        <meeting>11:30-12:20 MTWF</meeting>
+        <instructorid>9231</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="215">
+      <title>Technical Comm I</title>
+      <hours>1.0</hours>
+      <class id="21726">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>18:00-20:00 T</meeting>
+        <instructorid>9160</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="222">
+      <title>Calculus III</title>
+      <hours>4.0</hours>
+      <class id="21728">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>10:30-11:20 MWRF</meeting>
+        <instructorid>9279</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="231">
+      <title>Linear Algebra/Equations</title>
+      <hours>4.0</hours>
+      <class id="21729">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>12:30-13:20 MTWF</meeting>
+        <instructorid>9160</instructorid>
+      </class>
+      <class id="21730">
+        <term>SPRING</term>
+        <section>02</section>
+        <meeting>10:30-11:20 MWRF</meeting>
+        <instructorid>9192</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="275">
+      <title>Elem Graph Theory</title>
+      <hours>4.0</hours>
+      <class id="21731">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>13:30-14:20 MTWF</meeting>
+        <instructorid>9231</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="321">
+      <title>Advanced Analysis</title>
+      <hours>4.0</hours>
+      <class id="21771">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>None</meeting>
+        <instructorid>9024</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="331">
+      <title>Combinatorics</title>
+      <hours>4.0</hours>
+      <class id="40330">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>12:30-13:20 MWF</meeting>
+        <instructorid>9231</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="332">
+      <title>Abstract Algebra</title>
+      <hours>4.0</hours>
+      <class id="40331">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>09:30-10:20 MWRF</meeting>
+        <instructorid>9192</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="333">
+      <title>Abstract Algebra II</title>
+      <hours>4.0</hours>
+      <class id="21732">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>12:30-13:20 MTWF</meeting>
+        <instructorid>9231</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="334">
+      <title>Theory of Computation</title>
+      <hours>4.0</hours>
+      <class id="40745">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>11:30-12:20 MTWF</meeting>
+        <instructorid>9171</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="357">
+      <title>Vector Calculus/Fourier</title>
+      <hours>4.0</hours>
+      <class id="21733">
+        <term>SPRING</term>
+        <section>01</section>
+        <meeting>08:30-09:20 MWRF</meeting>
+        <instructorid>9279</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="361">
+      <title>Directed Study</title>
+      <hours>4.0</hours>
+      <class id="40332">
+        <term>FALL</term>
+        <section>90</section>
+        <meeting>None</meeting>
+      </class>
+      <class id="40860">
+        <term>FALL</term>
+        <section>10</section>
+        <meeting>None</meeting>
+        <instructorid>9279</instructorid>
+      </class>
+      <class id="40976">
+        <term>FALL</term>
+        <section>01</section>
+        <meeting>None</meeting>
+        <instructorid>9192</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="362">
+      <title>Directed Study</title>
+      <hours>4.0</hours>
+    </course>
+    <course subject="MATH" num="363">
+      <title>Independent Study</title>
+      <hours>4.0</hours>
+      <class id="40333">
+        <term>FALL</term>
+        <section>90</section>
+        <meeting>None</meeting>
+      </class>
+    </course>
+    <course subject="MATH" num="364">
+      <title>Independent Study</title>
+      <hours>4.0</hours>
+    </course>
+    <course subject="MATH" num="451">
+      <title>Senior Research</title>
+      <hours>4.0</hours>
+      <class id="40334">
+        <term>FALL</term>
+        <section>90</section>
+        <meeting>None</meeting>
+      </class>
+      <class id="41030">
+        <term>FALL</term>
+        <section>10</section>
+        <meeting>None</meeting>
+        <instructorid>9279</instructorid>
+      </class>
+    </course>
+    <course subject="MATH" num="452">
+      <title>Senior Research</title>
+      <hours>4.0</hours>
+      <class id="21736">
+        <term>SPRING</term>
+        <section>90</section>
+        <meeting>None</meeting>
+      </class>
+      <class id="21863">
+        <term>SPRING</term>
+        <section>10</section>
+        <meeting>None</meeting>
+        <instructorid>9279</instructorid>
+      </class>
+    </course>
+  </courses>
+  <instructors>
+    <instructor id="9024">
+      <first>Lori</first>
+      <last>Williams</last>
+      <departmentid>MATH</departmentid>
+      <city>Granville</city>
+      <state>OH</state>
+      <title>Professor, Math &amp; CS</title>
+    </instructor>
+    <instructor id="9031">
+      <first>Ankita</first>
+      <last>Jayaraman</last>
+      <departmentid>MATH</departmentid>
+      <city>Granville</city>
+      <state>OH</state>
+      <title>Associate Professor, Math &amp; CS</title>
+    </instructor>
+    <instructor id="9059">
+      <first>Arthur</first>
+      <last>Chapman</last>
+      <departmentid>MATH</departmentid>
+      <city>Granville</city>
+      <state>OH</state>
+      <title>Vis. Instructor, Math &amp; CS</title>
+    </instructor>
+    <instructor id="9077">
+      <first>Jordan</first>
+      <last>Ray</last>
+      <departmentid>MATH</departmentid>
+      <city>Granville</city>
+      <state>OH</state>
+      <title>Provessor, Mathematics</title>
+    </instructor>
+    <instructor id="9106">
+      <first>Kathleen</first>
+      <last>Campbell</last>
+      <departmentid>MATH</departmentid>
+      <city>Granville</city>
+      <state>OH</state>
+      <title>Associate Professor, Math &amp; CS</title>
+    </instructor>
+    <instructor id="9139">
+      <first>Caitlin</first>
+      <last>Fox</last>
+      <departmentid>MATH</departmentid>
+      <city>Granville</city>
+      <state>OH</state>
+      <title>Associate Professor, Math &amp; CS</title>
+    </instructor>
+    <instructor id="9140">
+      <first>Betty</first>
+      <last>Bradley</last>
+      <departmentid>MATH</departmentid>
+      <city>Granville</city>
+      <state>OH</state>
+      <title>Professor, Math &amp; CS</title>
+    </instructor>
+    <instructor id="9160">
+      <first>Barbara</first>
+      <last>Wong</last>
+      <departmentid>MATH</departmentid>
+      <city>Granville</city>
+      <state>OH</state>
+      <title>Associate Professor, Math &amp; CS</title>
+    </instructor>
+    <instructor id="9171">
+      <first>Rose</first>
+      <last>James</last>
+      <departmentid>MATH</departmentid>
+      <city>Clarksville</city>
+      <state>MD</state>
+      <title>Vis. Ass't Prof. PT, Math &amp; CS</title>
+    </instructor>
+    <instructor id="9192">
+      <first>Brian</first>
+      <last>Edwards</last>
+      <departmentid>MATH</departmentid>
+      <city>Granville</city>
+      <state>OH</state>
+      <title>Associate Professor, Math &amp; CS</title>
+    </instructor>
+    <instructor id="9231">
+      <first>Raymond</first>
+      <last>Nguyen</last>
+      <departmentid>MATH</departmentid>
+      <city>Granville</city>
+      <state>OH</state>
+      <title>Ass't Prof., Math Sciences</title>
+    </instructor>
+    <instructor id="9279">
+      <first>Cynthia</first>
+      <last>Castro</last>
+      <departmentid>MATH</departmentid>
+      <city>Granville</city>
+      <state>OH</state>
+      <title>Professor, Math &amp; CS</title>
+    </instructor>
+    <instructor id="9042">
+      <first>Theresa</first>
+      <last>Rice</last>
+      <departmentid>CINE</departmentid>
+      <city>Granville</city>
+      <state>OH</state>
+      <title>Professor, Cinema</title>
+    </instructor>
+    <instructor id="9097">
+      <first>Shirley</first>
+      <last>Morgan</last>
+      <departmentid>CINE</departmentid>
+      <city>Columbus</city>
+      <state>OH</state>
+      <title>Ass't Prof., Cinema</title>
+    </instructor>
+    <instructor id="9273">
+      <first>Austin</first>
+      <last>Gray</last>
+      <departmentid>CINE</departmentid>
+      <city>Columbus</city>
+      <state>OH</state>
+      <title>Ass't Prof., Cinema</title>
+    </instructor>
+    <instructor id="9284">
+      <first>Sarah</first>
+      <last>Woods</last>
+      <departmentid>CINE</departmentid>
+      <city>Galena</city>
+      <state>OH</state>
+      <title>Ass't, Professor, Cinema</title>
+    </instructor>
+  </instructors>
+</school>

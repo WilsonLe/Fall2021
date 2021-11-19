@@ -1,0 +1,1075 @@
+{
+   "departments": [
+      {
+         "@id": "CINE",
+         "name": "Cinema",
+         "division": "Fine Arts",
+         "chair": {
+            "@id": "9042",
+            "lastname": "Rice",
+            "firstname": "Theresa"
+         }
+      },
+      {
+         "@id": "MATH",
+         "name": "Mathematics & Computer Science",
+         "division": "Natural Sciences",
+         "chair": {
+            "@id": "9140",
+            "lastname": "Bradley",
+            "firstname": "Betty"
+         },
+         "subject": [
+            {
+               "@id": "CS",
+               "@name": "Computer Science"
+            },
+            {
+               "@id": "MATH",
+               "@name": "Mathematics"
+            }
+         ]
+      }
+   ],
+   "courses": [
+      {
+         "@subject": "CINE",
+         "@num": "104",
+         "title": "Film Aesthetics/Analysis",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40371",
+               "term": "FALL",
+               "section": "01",
+               "meeting": "13:30-14:20 MWF",
+               "instructorid": "9273.0"
+            },
+            {
+               "@id": "40372",
+               "term": "FALL",
+               "section": "02",
+               "meeting": "10:30-11:20 MWF",
+               "instructorid": "9097.0"
+            },
+            {
+               "@id": "21636",
+               "term": "SPRING",
+               "section": "01",
+               "meeting": "10:30-11:20 MWF",
+               "instructorid": "9097.0"
+            }
+         ]
+      },
+      {
+         "@subject": "CINE",
+         "@num": "219",
+         "title": "Elementary Cinema Prod",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40373",
+               "term": "FALL",
+               "section": "01",
+               "meeting": "13:30-16:20 R",
+               "instructorid": "9284.0"
+            },
+            {
+               "@id": "21638",
+               "term": "SPRING",
+               "section": "01",
+               "meeting": "13:30-14:50 TR",
+               "instructorid": "9284.0"
+            }
+         ]
+      },
+      {
+         "@subject": "CINE",
+         "@num": "310",
+         "title": "Intermediate Cinema Prod",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40374",
+               "term": "FALL",
+               "section": "01",
+               "meeting": "14:30-17:20 W",
+               "instructorid": "9284.0"
+            },
+            {
+               "@id": "21640",
+               "term": "SPRING",
+               "section": "01",
+               "meeting": "14:30-17:20 W",
+               "instructorid": "9284.0"
+            }
+         ]
+      },
+      {
+         "@subject": "CINE",
+         "@num": "326",
+         "title": "History of Cinema",
+         "hours": "4.0",
+         "class": {
+            "@id": "21642",
+            "term": "SPRING",
+            "section": "01",
+            "meeting": "12:30-13:20 MWF",
+            "instructorid": "9097.0"
+         }
+      },
+      {
+         "@subject": "CINE",
+         "@num": "361",
+         "title": "Directed Study",
+         "hours": "4.0"
+      },
+      {
+         "@subject": "CINE",
+         "@num": "362",
+         "title": "Directed Study",
+         "hours": "4.0"
+      },
+      {
+         "@subject": "CINE",
+         "@num": "363",
+         "title": "Independent Study",
+         "hours": "4.0"
+      },
+      {
+         "@subject": "CINE",
+         "@num": "364",
+         "title": "Independent Study",
+         "hours": "4.0"
+      },
+      {
+         "@subject": "CINE",
+         "@num": "407",
+         "title": "Documentary/Theory & Prac",
+         "hours": "4.0",
+         "class": {
+            "@id": "40375",
+            "term": "FALL",
+            "section": "01",
+            "meeting": "10:00-11:20 TR",
+            "instructorid": "9042.0"
+         }
+      },
+      {
+         "@subject": "CINE",
+         "@num": "408",
+         "title": "Adv Topics Film Aesthetics",
+         "hours": "1.0",
+         "class": [
+            {
+               "@id": "21647",
+               "term": "SPRING",
+               "section": "01",
+               "meeting": "13:30-14:20 MWF",
+               "instructorid": "9097.0"
+            },
+            {
+               "@id": "21890",
+               "term": "SPRING",
+               "section": "85",
+               "instructorid": "9097.0"
+            }
+         ]
+      },
+      {
+         "@subject": "CINE",
+         "@num": "410",
+         "title": "Advanced Cinema Production",
+         "hours": "4.0",
+         "class": {
+            "@id": "21648",
+            "term": "SPRING",
+            "section": "01",
+            "meeting": "13:30-16:50 TR",
+            "instructorid": "9042.0"
+         }
+      },
+      {
+         "@subject": "CINE",
+         "@num": "412",
+         "title": "Theory of Cinema",
+         "hours": "1.0",
+         "class": [
+            {
+               "@id": "40376",
+               "term": "FALL",
+               "section": "01",
+               "meeting": "12:30-13:20 MWF",
+               "instructorid": "9273.0"
+            },
+            {
+               "@id": "41007",
+               "term": "FALL",
+               "section": "85",
+               "meeting": "12:30-13:20 MWF",
+               "instructorid": "9273.0"
+            }
+         ]
+      },
+      {
+         "@subject": "CINE",
+         "@num": "419",
+         "title": "Cinema Workshop",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40377",
+               "term": "FALL",
+               "section": "01",
+               "meeting": "13:30-16:20 T",
+               "instructorid": "9284.0"
+            },
+            {
+               "@id": "21652",
+               "term": "SPRING",
+               "section": "01",
+               "meeting": "14:30-16:50 W",
+               "instructorid": "9042.0"
+            }
+         ]
+      },
+      {
+         "@subject": "CINE",
+         "@num": "451",
+         "title": "Senior Research",
+         "hours": "4.0"
+      },
+      {
+         "@subject": "CINE",
+         "@num": "452",
+         "title": "Senior Research",
+         "hours": "4.0"
+      },
+      {
+         "@subject": "CS",
+         "@num": "110",
+         "title": "Computing/Digital Media",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40336",
+               "term": "FALL",
+               "section": "01",
+               "meeting": "10:30-11:20 MWRF",
+               "instructorid": "9031.0"
+            },
+            {
+               "@id": "40744",
+               "term": "FALL",
+               "section": "02",
+               "meeting": "08:30-09:20 MWRF",
+               "instructorid": "9031.0"
+            },
+            {
+               "@id": "21709",
+               "term": "SPRING",
+               "section": "01",
+               "meeting": "10:30-11:20 MWRF",
+               "instructorid": "9031.0"
+            }
+         ]
+      },
+      {
+         "@subject": "CS",
+         "@num": "111",
+         "title": "Computing for Scientific Disc",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40338",
+               "term": "FALL",
+               "section": "01",
+               "meeting": "09:30-10:20 MWRF",
+               "instructorid": "9106.0"
+            },
+            {
+               "@id": "21710",
+               "term": "SPRING",
+               "section": "01",
+               "meeting": "12:30-13:20 MTWF",
+               "instructorid": "9106.0"
+            }
+         ]
+      },
+      {
+         "@subject": "CS",
+         "@num": "173",
+         "title": "Intermediate Computer Science",
+         "hours": "4.0",
+         "class": {
+            "@id": "21711",
+            "term": "SPRING",
+            "section": "01",
+            "meeting": "11:30-12:20 MTWF",
+            "instructorid": "9106.0"
+         }
+      },
+      {
+         "@subject": "CS",
+         "@num": "174",
+         "title": "Discrete Math for CS",
+         "hours": "4.0",
+         "class": {
+            "@id": "21712",
+            "term": "SPRING",
+            "section": "01",
+            "meeting": "09:30-10:20 MWRF",
+            "instructorid": "9077.0"
+         }
+      },
+      {
+         "@subject": "CS",
+         "@num": "215",
+         "title": "Technical Comm I",
+         "hours": "1.0",
+         "class": {
+            "@id": "21776",
+            "term": "SPRING",
+            "section": "01",
+            "meeting": "18:00-20:00 T",
+            "instructorid": "9160.0"
+         }
+      },
+      {
+         "@subject": "CS",
+         "@num": "271",
+         "title": "Data Structures",
+         "hours": "4.0",
+         "class": {
+            "@id": "40339",
+            "term": "FALL",
+            "section": "01",
+            "meeting": "10:30-11:20 MWRF",
+            "instructorid": "9106.0"
+         }
+      },
+      {
+         "@subject": "CS",
+         "@num": "275",
+         "title": "Elementary Graph Theory",
+         "hours": "4.0",
+         "class": {
+            "@id": "21713",
+            "term": "SPRING",
+            "section": "01",
+            "meeting": "13:30-14:20 MTWF",
+            "instructorid": "9231.0"
+         }
+      },
+      {
+         "@subject": "CS",
+         "@num": "281",
+         "title": "Computer Organization",
+         "hours": "4.0",
+         "class": {
+            "@id": "21714",
+            "term": "SPRING",
+            "section": "01",
+            "meeting": "08:30-09:20 MWF",
+            "instructorid": "9031.0"
+         }
+      },
+      {
+         "@subject": "CS",
+         "@num": "334",
+         "title": "Theory of Computation",
+         "hours": "4.0",
+         "class": {
+            "@id": "40340",
+            "term": "FALL",
+            "section": "01",
+            "meeting": "11:30-12:20 MTWF",
+            "instructorid": "9171.0"
+         }
+      },
+      {
+         "@subject": "CS",
+         "@num": "361",
+         "title": "Directed Study",
+         "hours": "4.0"
+      },
+      {
+         "@subject": "CS",
+         "@num": "362",
+         "title": "Directed Study",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "21717",
+               "term": "SPRING",
+               "section": "90",
+               "instructorid": "nan"
+            },
+            {
+               "@id": "21969",
+               "term": "SPRING",
+               "section": "08",
+               "instructorid": "9140.0"
+            }
+         ]
+      },
+      {
+         "@subject": "CS",
+         "@num": "363",
+         "title": "Independent Study",
+         "hours": "4.0"
+      },
+      {
+         "@subject": "CS",
+         "@num": "364",
+         "title": "Independent Study",
+         "hours": "4.0"
+      },
+      {
+         "@subject": "CS",
+         "@num": "372",
+         "title": "Operating Systems",
+         "hours": "4.0",
+         "class": {
+            "@id": "40343",
+            "term": "FALL",
+            "section": "01",
+            "meeting": "13:30-14:20 MWRF",
+            "instructorid": "9031.0"
+         }
+      },
+      {
+         "@subject": "CS",
+         "@num": "373",
+         "title": "Programming Languages",
+         "hours": "4.0",
+         "class": {
+            "@id": "21764",
+            "term": "SPRING",
+            "section": "01",
+            "meeting": "09:30-10:20 MWRF",
+            "instructorid": "9140.0"
+         }
+      },
+      {
+         "@subject": "CS",
+         "@num": "451",
+         "title": "Senior Research",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40344",
+               "term": "FALL",
+               "section": "90",
+               "instructorid": "nan"
+            },
+            {
+               "@id": "40951",
+               "term": "FALL",
+               "section": "06",
+               "instructorid": "9106.0"
+            }
+         ]
+      },
+      {
+         "@subject": "CS",
+         "@num": "452",
+         "title": "Senior Research",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "21719",
+               "term": "SPRING",
+               "section": "90",
+               "instructorid": "nan"
+            },
+            {
+               "@id": "21845",
+               "term": "SPRING",
+               "section": "06",
+               "instructorid": "9106.0"
+            }
+         ]
+      },
+      {
+         "@subject": "MATH",
+         "@num": "97",
+         "title": "Math Placement Waiver",
+         "hours": "0.0",
+         "class": {
+            "@id": "40902",
+            "term": "FALL",
+            "section": "97",
+            "instructorid": "nan"
+         }
+      },
+      {
+         "@subject": "MATH",
+         "@num": "102",
+         "title": "Elements of Statistics",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40318",
+               "term": "FALL",
+               "section": "01",
+               "meeting": "11:30-12:20 MWF",
+               "instructorid": "9059.0"
+            },
+            {
+               "@id": "40319",
+               "term": "FALL",
+               "section": "02",
+               "meeting": "13:30-14:20 MWF",
+               "instructorid": "9059.0"
+            },
+            {
+               "@id": "40320",
+               "term": "FALL",
+               "section": "03",
+               "meeting": "12:30-13:20 MWF",
+               "instructorid": "9059.0"
+            },
+            {
+               "@id": "21720",
+               "term": "SPRING",
+               "section": "01",
+               "meeting": "12:30-13:20 MWF",
+               "instructorid": "9059.0"
+            },
+            {
+               "@id": "21721",
+               "term": "SPRING",
+               "section": "02",
+               "meeting": "14:30-15:20 MWF",
+               "instructorid": "9059.0"
+            },
+            {
+               "@id": "21722",
+               "term": "SPRING",
+               "section": "03",
+               "meeting": "11:30-12:20 MWF",
+               "instructorid": "9059.0"
+            }
+         ]
+      },
+      {
+         "@subject": "MATH",
+         "@num": "121",
+         "title": "Essentials of Calculus",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40321",
+               "term": "FALL",
+               "section": "01",
+               "meeting": "08:30-09:20 MWRF",
+               "instructorid": "9024.0"
+            },
+            {
+               "@id": "40322",
+               "term": "FALL",
+               "section": "02",
+               "meeting": "09:30-10:20 MWRF",
+               "instructorid": "9024.0"
+            },
+            {
+               "@id": "40323",
+               "term": "FALL",
+               "section": "03",
+               "meeting": "10:30-11:20 MWRF",
+               "instructorid": "9024.0"
+            },
+            {
+               "@id": "21723",
+               "term": "SPRING",
+               "section": "01",
+               "meeting": "11:30-12:20 MTWF",
+               "instructorid": "9231.0"
+            },
+            {
+               "@id": "21780",
+               "term": "SPRING",
+               "section": "02",
+               "meeting": "10:30-11:20 MWRF",
+               "instructorid": "9024.0"
+            }
+         ]
+      },
+      {
+         "@subject": "MATH",
+         "@num": "123",
+         "title": "Calculus I (Single Variable)",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40324",
+               "term": "FALL",
+               "section": "01",
+               "meeting": "08:30-09:20 MWRF",
+               "instructorid": "9279.0"
+            },
+            {
+               "@id": "40325",
+               "term": "FALL",
+               "section": "02",
+               "meeting": "09:30-10:20 MWRF",
+               "instructorid": "9279.0"
+            },
+            {
+               "@id": "40326",
+               "term": "FALL",
+               "section": "03",
+               "meeting": "10:30-11:20 MWRF",
+               "instructorid": "9279.0"
+            },
+            {
+               "@id": "21724",
+               "term": "SPRING",
+               "section": "01",
+               "meeting": "08:30-09:20 MWRF",
+               "instructorid": "9077.0"
+            },
+            {
+               "@id": "21781",
+               "term": "SPRING",
+               "section": "02",
+               "meeting": "10:30-11:20 MWRF",
+               "instructorid": "9077.0"
+            }
+         ]
+      },
+      {
+         "@subject": "MATH",
+         "@num": "124",
+         "title": "Calculus II (Multivariable)",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40327",
+               "term": "FALL",
+               "section": "01",
+               "meeting": "10:30-11:20 MWRF",
+               "instructorid": "9192.0"
+            },
+            {
+               "@id": "40328",
+               "term": "FALL",
+               "section": "02",
+               "meeting": "12:30-13:20 MTWF",
+               "instructorid": "9160.0"
+            },
+            {
+               "@id": "21725",
+               "term": "SPRING",
+               "section": "01",
+               "meeting": "08:30-09:20 MWRF",
+               "instructorid": "9024.0"
+            },
+            {
+               "@id": "21727",
+               "term": "SPRING",
+               "section": "02",
+               "meeting": "09:30-10:20 MWRF",
+               "instructorid": "9024.0"
+            }
+         ]
+      },
+      {
+         "@subject": "MATH",
+         "@num": "210",
+         "title": "Intro Proof Techniques",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40329",
+               "term": "FALL",
+               "section": "01",
+               "meeting": "11:30-12:20 MTWF",
+               "instructorid": "9160.0"
+            },
+            {
+               "@id": "40755",
+               "term": "FALL",
+               "section": "02",
+               "meeting": "11:30-12:20 MTWF",
+               "instructorid": "9231.0"
+            }
+         ]
+      },
+      {
+         "@subject": "MATH",
+         "@num": "215",
+         "title": "Technical Comm I",
+         "hours": "1.0",
+         "class": {
+            "@id": "21726",
+            "term": "SPRING",
+            "section": "01",
+            "meeting": "18:00-20:00 T",
+            "instructorid": "9160.0"
+         }
+      },
+      {
+         "@subject": "MATH",
+         "@num": "222",
+         "title": "Calculus III",
+         "hours": "4.0",
+         "class": {
+            "@id": "21728",
+            "term": "SPRING",
+            "section": "01",
+            "meeting": "10:30-11:20 MWRF",
+            "instructorid": "9279.0"
+         }
+      },
+      {
+         "@subject": "MATH",
+         "@num": "231",
+         "title": "Linear Algebra/Equations",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "21729",
+               "term": "SPRING",
+               "section": "01",
+               "meeting": "12:30-13:20 MTWF",
+               "instructorid": "9160.0"
+            },
+            {
+               "@id": "21730",
+               "term": "SPRING",
+               "section": "02",
+               "meeting": "10:30-11:20 MWRF",
+               "instructorid": "9192.0"
+            }
+         ]
+      },
+      {
+         "@subject": "MATH",
+         "@num": "275",
+         "title": "Elem Graph Theory",
+         "hours": "4.0",
+         "class": {
+            "@id": "21731",
+            "term": "SPRING",
+            "section": "01",
+            "meeting": "13:30-14:20 MTWF",
+            "instructorid": "9231.0"
+         }
+      },
+      {
+         "@subject": "MATH",
+         "@num": "321",
+         "title": "Advanced Analysis",
+         "hours": "4.0",
+         "class": {
+            "@id": "21771",
+            "term": "SPRING",
+            "section": "01",
+            "instructorid": "9024.0"
+         }
+      },
+      {
+         "@subject": "MATH",
+         "@num": "331",
+         "title": "Combinatorics",
+         "hours": "4.0",
+         "class": {
+            "@id": "40330",
+            "term": "FALL",
+            "section": "01",
+            "meeting": "12:30-13:20 MWF",
+            "instructorid": "9231.0"
+         }
+      },
+      {
+         "@subject": "MATH",
+         "@num": "332",
+         "title": "Abstract Algebra",
+         "hours": "4.0",
+         "class": {
+            "@id": "40331",
+            "term": "FALL",
+            "section": "01",
+            "meeting": "09:30-10:20 MWRF",
+            "instructorid": "9192.0"
+         }
+      },
+      {
+         "@subject": "MATH",
+         "@num": "333",
+         "title": "Abstract Algebra II",
+         "hours": "4.0",
+         "class": {
+            "@id": "21732",
+            "term": "SPRING",
+            "section": "01",
+            "meeting": "12:30-13:20 MTWF",
+            "instructorid": "9231.0"
+         }
+      },
+      {
+         "@subject": "MATH",
+         "@num": "334",
+         "title": "Theory of Computation",
+         "hours": "4.0",
+         "class": {
+            "@id": "40745",
+            "term": "FALL",
+            "section": "01",
+            "meeting": "11:30-12:20 MTWF",
+            "instructorid": "9171.0"
+         }
+      },
+      {
+         "@subject": "MATH",
+         "@num": "357",
+         "title": "Vector Calculus/Fourier",
+         "hours": "4.0",
+         "class": {
+            "@id": "21733",
+            "term": "SPRING",
+            "section": "01",
+            "meeting": "08:30-09:20 MWRF",
+            "instructorid": "9279.0"
+         }
+      },
+      {
+         "@subject": "MATH",
+         "@num": "361",
+         "title": "Directed Study",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40332",
+               "term": "FALL",
+               "section": "90",
+               "instructorid": "nan"
+            },
+            {
+               "@id": "40860",
+               "term": "FALL",
+               "section": "10",
+               "instructorid": "9279.0"
+            },
+            {
+               "@id": "40976",
+               "term": "FALL",
+               "section": "01",
+               "instructorid": "9192.0"
+            }
+         ]
+      },
+      {
+         "@subject": "MATH",
+         "@num": "362",
+         "title": "Directed Study",
+         "hours": "4.0"
+      },
+      {
+         "@subject": "MATH",
+         "@num": "363",
+         "title": "Independent Study",
+         "hours": "4.0",
+         "class": {
+            "@id": "40333",
+            "term": "FALL",
+            "section": "90",
+            "instructorid": "nan"
+         }
+      },
+      {
+         "@subject": "MATH",
+         "@num": "364",
+         "title": "Independent Study",
+         "hours": "4.0"
+      },
+      {
+         "@subject": "MATH",
+         "@num": "451",
+         "title": "Senior Research",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "40334",
+               "term": "FALL",
+               "section": "90",
+               "instructorid": "nan"
+            },
+            {
+               "@id": "41030",
+               "term": "FALL",
+               "section": "10",
+               "instructorid": "9279.0"
+            }
+         ]
+      },
+      {
+         "@subject": "MATH",
+         "@num": "452",
+         "title": "Senior Research",
+         "hours": "4.0",
+         "class": [
+            {
+               "@id": "21736",
+               "term": "SPRING",
+               "section": "90",
+               "instructorid": "nan"
+            },
+            {
+               "@id": "21863",
+               "term": "SPRING",
+               "section": "10",
+               "instructorid": "9279.0"
+            }
+         ]
+      }
+   ],
+   "instructors": [
+      {
+         "@id": "9024",
+         "first": "Lori",
+         "last": "Williams",
+         "departmentid": "MATH",
+         "city": "Granville",
+         "state": "OH",
+         "title": "Professor, Math & CS"
+      },
+      {
+         "@id": "9031",
+         "first": "Ankita",
+         "last": "Jayaraman",
+         "departmentid": "MATH",
+         "city": "Granville",
+         "state": "OH",
+         "title": "Associate Professor, Math & CS"
+      },
+      {
+         "@id": "9059",
+         "first": "Arthur",
+         "last": "Chapman",
+         "departmentid": "MATH",
+         "city": "Granville",
+         "state": "OH",
+         "title": "Vis. Instructor, Math & CS"
+      },
+      {
+         "@id": "9077",
+         "first": "Jordan",
+         "last": "Ray",
+         "departmentid": "MATH",
+         "city": "Granville",
+         "state": "OH",
+         "title": "Provessor, Mathematics"
+      },
+      {
+         "@id": "9106",
+         "first": "Kathleen",
+         "last": "Campbell",
+         "departmentid": "MATH",
+         "city": "Granville",
+         "state": "OH",
+         "title": "Associate Professor, Math & CS"
+      },
+      {
+         "@id": "9139",
+         "first": "Caitlin",
+         "last": "Fox",
+         "departmentid": "MATH",
+         "city": "Granville",
+         "state": "OH",
+         "title": "Associate Professor, Math & CS"
+      },
+      {
+         "@id": "9140",
+         "first": "Betty",
+         "last": "Bradley",
+         "departmentid": "MATH",
+         "city": "Granville",
+         "state": "OH",
+         "title": "Professor, Math & CS"
+      },
+      {
+         "@id": "9160",
+         "first": "Barbara",
+         "last": "Wong",
+         "departmentid": "MATH",
+         "city": "Granville",
+         "state": "OH",
+         "title": "Associate Professor, Math & CS"
+      },
+      {
+         "@id": "9171",
+         "first": "Rose",
+         "last": "James",
+         "departmentid": "MATH",
+         "city": "Clarksville",
+         "state": "MD",
+         "title": "Vis. Ass't Prof. PT, Math & CS"
+      },
+      {
+         "@id": "9192",
+         "first": "Brian",
+         "last": "Edwards",
+         "departmentid": "MATH",
+         "city": "Granville",
+         "state": "OH",
+         "title": "Associate Professor, Math & CS"
+      },
+      {
+         "@id": "9231",
+         "first": "Raymond",
+         "last": "Nguyen",
+         "departmentid": "MATH",
+         "city": "Granville",
+         "state": "OH",
+         "title": "Ass't Prof., Math Sciences"
+      },
+      {
+         "@id": "9279",
+         "first": "Cynthia",
+         "last": "Castro",
+         "departmentid": "MATH",
+         "city": "Granville",
+         "state": "OH",
+         "title": "Professor, Math & CS"
+      },
+      {
+         "@id": "9042",
+         "first": "Theresa",
+         "last": "Rice",
+         "departmentid": "CINE",
+         "city": "Granville",
+         "state": "OH",
+         "title": "Professor, Cinema"
+      },
+      {
+         "@id": "9097",
+         "first": "Shirley",
+         "last": "Morgan",
+         "departmentid": "CINE",
+         "city": "Columbus",
+         "state": "OH",
+         "title": "Ass't Prof., Cinema"
+      },
+      {
+         "@id": "9273",
+         "first": "Austin",
+         "last": "Gray",
+         "departmentid": "CINE",
+         "city": "Columbus",
+         "state": "OH",
+         "title": "Ass't Prof., Cinema"
+      },
+      {
+         "@id": "9284",
+         "first": "Sarah",
+         "last": "Woods",
+         "departmentid": "CINE",
+         "city": "Galena",
+         "state": "OH",
+         "title": "Ass't, Professor, Cinema"
+      }
+   ]
+}

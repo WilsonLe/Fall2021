@@ -8,8 +8,7 @@
 #include <iostream>
 
 template <class T>
-class Node
-{
+class Node{
  public:
  
    T *item;
@@ -26,8 +25,7 @@ template <class T>
 std::ostream& operator<<(std::ostream& os, const List<T>& list);
 
 template <class T>
-class List
-{
+class List{
  public:
 	
    List();                               // default constructor
