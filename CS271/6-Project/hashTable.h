@@ -20,6 +20,7 @@ public:
 private:
     int slots;
     List<KeyType> *table;  // an array of List<KeyType>’s
+		void copy(const HashTable<KeyType>& h);
 };
 
 class KeyError { };

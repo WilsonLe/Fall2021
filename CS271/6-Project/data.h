@@ -24,14 +24,15 @@ class str {
 
 			int hashRes = 0; // The hash result
 			for(int i = 0; i < this->data.length(); i++) {
-					char c = this->data[i];
-					// Using the property (a+b) mod n=(a mod n + b mod n) mod n 
-					// and the property (ab) mod p = ( (a mod p) (b mod p) ) mod p,
-					// we can use the following formulas to calculate the same result as 
-					// (hashing a string by expressing it as radix-257 and then mod by a number)
-					hashRes = (hashRes + ((c - 'a') * powOfBase)) % mod;
-					powOfBase = (powOfBase * base) % mod;
+				unsigned char c = this->data[i];
+				// Using the property (a+b) mod n=(a mod n + b mod n) mod n 
+				// and the property (ab) mod p = ( (a mod p) (b mod p) ) mod p,
+				// we can use the following formulas to calculate the same result as 
+				// (hashing a string by expressing it as radix-257 and then mod by a number)
+				hashRes = (hashRes + (c * powOfBase)) % mod;
+				powOfBase = (powOfBase * base) % mod;
 			}
+
 			return hashRes;
 		}
 		friend ostream& operator<<(std::ostream& os, const str& s){

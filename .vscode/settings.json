@@ -111,7 +111,9 @@
 		"typeindex": "cpp",
 		"__availability": "cpp",
 		"filesystem": "cpp",
-		"version": "cpp"
+		"version": "cpp",
+		"__functional_03": "cpp",
+		"memory_resource": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }
