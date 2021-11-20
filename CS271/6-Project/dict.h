@@ -16,9 +16,6 @@ class Dict{
 
 		// remove data from list
 		void remove(const Data<Key, Value>& d);
-
-		// check if dictionary empty
-		bool empty() const;
 	
 		// return string representation of dictionary
 		string toString();

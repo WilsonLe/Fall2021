@@ -26,7 +26,7 @@ HashTable<KeyType>::HashTable(const HashTable<KeyType>& h){
 
 template <class KeyType>
 KeyType* HashTable<KeyType>::get(const KeyType& k) const{
-	int slot = k.hash();
+	int slot = k.hash(this->slots);
 	if (this->table[slot].get(k)){
 		return this->table[slot].get(k);
 	}
