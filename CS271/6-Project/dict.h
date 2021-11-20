@@ -11,13 +11,13 @@ class Dict{
 		~Dict();
 
 		// insert data into list
-		void insert(KeyValue *kv);
+		void insert(Data<Key, Value> *d);
 
 		// get data from list
-		KeyValue* get(const KeyValue& kv);
+		Data<Key, Value>* get(const Data<Key, Value>& d);
 
 		// remove data from list
-		void remove(const KeyValue& kv);
+		void remove(const Data<Key, Value>& d);
 
 		// check if dictionary empty
 		bool empty();
@@ -27,6 +27,7 @@ class Dict{
 		
 	private:
 		HashTable<Data<Key, Value> > *ht;
+		int size;
 };
 
 #include "dict.cpp"

@@ -1,48 +1,48 @@
 #include <sstream>
+#include "hashTable.h"
 #include "dict.h"
-
 using namespace std;
 
-template <class K, class V>
-Dict<K, V>::Dict(){
-	this->ht = new HashTable<Data<K, V> >;
+template <class Key, class Value>
+Dict<Key, Value>::Dict(){
+	this->size = 13001;
+	this->ht = new HashTable<Data<Key, Value> >(this->size);
 }
 
-template <class K, class V>
-Dict<K, V>::~Dict(){
+template <class Key, class Value>
+Dict<Key, Value>::~Dict(){
 	delete this->ht;
 }
 
-template <class K, class V>
-void Dict<K, V>::insert(K k, V V){
-	this->ht->insert(new Node<K, V>(k, V))
+template <class Key, class Value>
+void Dict<Key, Value>::insert(Data<Key, Value> *d){
+	this->ht->insert(d);
 }
 
-template <class K, class V>
-V Dict<K, V>::get(K k){
-	
-	return *(this->ht->get(new Data<k,)->value)
-}
+// template <class Key, class V>
+// V Dict<Key, V>::get(Key k){
 
-template <class K, class V>
-void Dict<K, V>::remove(K k){
-	this->ht->remove(k)
-}
+// 	// return *(this->ht->get(new Data<k,)->value)
+// }
 
-template <class K, class V>
-bool Dict<K, V>::empty(){
-	return this->bst->empty();
-}
+// template <class Key, class V>
+// void Dict<Key, V>::remove(Data<K, V>& d){
 
-template <class K, class V>
-string Dict<K, V>::toString(){
+// 	this->ht->remove(k);
+// }
+
+// template <class K, class V>
+// bool Dict<K, V>::empty(){
+
+// 	return this->bst->empty();
+// }
+
+template <class Key, class Value>
+string Dict<Key, Value>::toString(){
 	stringstream ss;
-	vector<Node<K, V>*> v;
-	this->bst->inOrderWalk(this->bst->root, v);
 	ss << "{" << endl;
-	for (int i = 0; i < v.size(); i++){
-		Node<K, V> *n = v[i];
-		ss << "\t" << *(n->key) << ": " << *(n->data) << "," << endl;
+	for (int i = 0; i < this->size; i++){
+		cout << this->ht[i].length() << endl;
 	}
 	ss << "}";
 	return ss.str();

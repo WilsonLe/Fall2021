@@ -34,6 +34,7 @@ void HashTable<KeyType>::insert(KeyType *k){
 	int slot = k->hash(this->slots);
 	this->table[slot].append(k);
 }
+
 template <class KeyType>
 void HashTable<KeyType>::remove(const KeyType& k){
 	int slot = k.hash(this->slots);

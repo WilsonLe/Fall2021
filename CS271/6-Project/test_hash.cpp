@@ -128,6 +128,5 @@ int main(){
 	testHtInsert();
 	testHtRemove();
 	testHtClone();
-
 	return 0;
 }

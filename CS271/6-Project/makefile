@@ -1,2 +1,2 @@
 main:
-	g++ test_hash.cpp -o hashTest
+	g++ test_dict.cpp -o dictTest
