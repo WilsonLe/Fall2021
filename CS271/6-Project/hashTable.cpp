@@ -5,6 +5,12 @@
 using namespace std;
 
 template <class KeyType>
+HashTable<KeyType>::HashTable(){
+    this->slots = 13001;
+	this->table = new List<KeyType>[13001];
+}
+
+template <class KeyType>
 HashTable<KeyType>::HashTable(int numSlots){
 	this->slots = numSlots;
 	this->table = new List<KeyType>[numSlots];
@@ -48,8 +54,21 @@ HashTable<KeyType>& HashTable<KeyType>::operator=(const HashTable<KeyType>& h){
 }
 
 template <class KeyType>
-std::string HashTable<KeyType>::toString(int slot) const{
+string HashTable<KeyType>::toString(int slot) const{
 	return this->table[slot].toString();
+}
+
+template <class KeyType>
+string HashTable<KeyType>::toString() const {
+	stringstream ss;
+	ss << "{" << endl;
+	for (int i = 0; i < slots; i++){
+        if(this->table[i].length() > 0) {
+		    ss << this->table[i].toString() << endl;
+        }
+	}
+	ss << "}";
+	return ss.str();
 }
 
 template <class KeyType>

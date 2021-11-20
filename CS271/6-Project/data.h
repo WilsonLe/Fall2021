@@ -2,6 +2,7 @@
 #define DATA_H
 #include <string>
 #include <iostream>
+#include <climits>
 
 // class str is a string that has a hash function
 class str {
@@ -35,7 +36,7 @@ class str {
 
 			return hashRes;
 		}
-		friend ostream& operator<<(std::ostream& os, const str& s){
+		friend ostream& operator<<(ostream& os, const str& s){
 			os << s.data;
 			return os;
 		}
@@ -53,7 +54,7 @@ class str {
 };
 
 template <class K, class V>
-class Data{
+class Data {
 	public:
 		Data(K k, V v){
 			this->key = k;
@@ -62,8 +63,13 @@ class Data{
 		int hash(int numSlots) const{
 			return this->key.hash(numSlots);
 		}
+        string toString() const {
+            stringstream ss;
+            ss << this->key << ": " << this->value;
+            return ss.str();
+        }
 		friend ostream & operator<< (ostream& output, const Data &D ){ 
-			output << D.value;
+			output << D.toString();
 			return output;            
 		}
 		friend bool operator<(const Data& Data1, const Data& Data2){

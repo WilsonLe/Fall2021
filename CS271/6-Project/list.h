@@ -6,6 +6,7 @@
 
 #include <cstdlib>
 #include <iostream>
+using namespace std;
 
 template <class T>
 class Node{
@@ -22,7 +23,7 @@ class Node{
 template <class T> class List;
 
 template <class T>
-std::ostream& operator<<(std::ostream& os, const List<T>& list);
+ostream& operator<<(ostream& os, const List<T>& list);
 
 template <class T>
 class List{
@@ -44,7 +45,7 @@ class List{
    List<T>& operator=(const List<T>& src);     // assignment operator
    List<T>& operator+=(const List<T>& src);    // concatenation operator
    
-   std::string toString() const;
+   string toString() const;
 	
  private:
  
@@ -55,7 +56,7 @@ class List{
    void deallocate();                    // deallocate the list
    Node<T>* _find(int index) const;      // return a pointer to the node in position index
  	
-   friend std::ostream& operator<< <T>(std::ostream& os, const List<T>& list);
+   friend ostream& operator<< <T>(ostream& os, const List<T>& list);
 };
 
 class IndexError { };

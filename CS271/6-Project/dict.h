@@ -7,26 +7,24 @@ class Dict{
 	friend void testDictDestructor();
 	public:
 		Dict();
-		
-		~Dict();
 
 		// insert data into list
 		void insert(Data<Key, Value> *d);
 
 		// get data from list
-		Data<Key, Value>* get(const Data<Key, Value>& d);
+		Data<Key, Value> * get(const Data<Key, Value>& d) const;
 
 		// remove data from list
 		void remove(const Data<Key, Value>& d);
 
 		// check if dictionary empty
-		bool empty();
+		bool empty() const;
 	
 		// return string representation of dictionary
 		string toString();
 		
 	private:
-		HashTable<Data<Key, Value> > *ht;
+		HashTable<Data<Key, Value> > ht;
 		int size;
 };
 

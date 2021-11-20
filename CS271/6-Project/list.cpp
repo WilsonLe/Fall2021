@@ -253,9 +253,9 @@ Node<T>* List<T>::_find(int index) const  // used by append, insert, [], pop
 }
 
 template <class T>
-std::string List<T>::toString() const
+string List<T>::toString() const
 {
-	std::stringstream ss;
+	stringstream ss;
 	Node<T> *node = head;
 	ss << "[";
 	while (node != nullptr && node->next != nullptr)
@@ -271,7 +271,7 @@ std::string List<T>::toString() const
 }
 
 template <class T>
-std::ostream& operator<<(std::ostream& os, const List<T>& list)
+ostream& operator<<(ostream& os, const List<T>& list)
 {
 	os << list.toString();
 	

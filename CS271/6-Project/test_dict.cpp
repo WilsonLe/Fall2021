@@ -9,6 +9,8 @@ using namespace std;
 
 void testDictToString(){
 	Dict<str, string> d;
+    Data<str, string> * test = new Data<str, string>(str("test"), "testValue");
+    d.insert(test);
 	cout << d.toString() << endl;
 }
 
