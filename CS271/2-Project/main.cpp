@@ -110,7 +110,9 @@ int main(){
 		timeval timeBeforeM, timeAfterM;
 		long diffSecondsM, diffUSecondsM;
 		gettimeofday(&timeBeforeM, NULL);
+
 		mergeSort(mergeVector, 0, mergeVector.size() - 1);
+		
 		gettimeofday(&timeAfterM, NULL);
 		diffSecondsM = timeAfterM.tv_sec - timeBeforeM.tv_sec;
 		diffUSecondsM = timeAfterM.tv_usec - timeBeforeM.tv_usec;

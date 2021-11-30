@@ -25,11 +25,6 @@ void Dict<Key, Value>::remove(const Data<Key, Value>& k){
 }
 
 template <class Key, class Value>
-bool Dict<Key, Value>::empty() const {
-	return this->ht.empty();
-}
-
-template <class Key, class Value>
 string Dict<Key, Value>::toString(){
     return ht.toString();
 }
