@@ -18,7 +18,7 @@ MinPriorityQueue<KeyType>::MinPriorityQueue(int n) : MinHeap<KeyType>(n)
 { }
 
 template <class KeyType>
-MinPriorityQueue<KeyType>::MinPriorityQueue(vector<KeyType *> initA) : MinHeap<KeyType>(initA)
+MinPriorityQueue<KeyType>::MinPriorityQueue(vector<KeyType *> initA, int cap) : MinHeap<KeyType>(initA, cap)
 { }
 
 /*==========================================================
@@ -56,7 +56,7 @@ KeyType* MinPriorityQueue<KeyType>::extractMin()
 	KeyType* min = A[0]; 		// store the minimum element
 	A[0] = A[heapSize - 1]; 	// delete the minimum element and replace it with the last element currently in MPQ
 	heapSize--; 			// decrement heapSize
-	heapify(0); 			// call heapify since the subtrees are valid heaps
+    heapify(0);  		    // call heapify since the subtrees are valid heaps
 	return min; 
 }
 
@@ -71,7 +71,7 @@ void MinPriorityQueue<KeyType>::decreaseKey(int index, KeyType* key)
 	if (*key > *(A[index]))		// check if key is greater than the current element 
 		throw KeyError();	// throw exception 
 	A[index] = key; 		// set value of A[index] to key
-	while ((index > 0) && *(A[index]) < *(A[parent(index)])) 
+	while ((index > 0) && *(A[index]) <= *(A[parent(index)])) 
 					// while not reaching root and current element is smaller than its parent
 	{
 		swap(index, parent(index)); 	// swap current element with its parent

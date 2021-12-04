@@ -19,14 +19,14 @@ MinHeap<KeyType>::MinHeap(int n)
 
 /*==========================================================
 MinHeap(vector<KeyType *> initA)      //construct heap from vector
-Precondition: Must be given a vector
+Precondition: Must be given a vector and a capacity
 Postcondition: A min heap constructed from the vector
 ============================================================*/
 template <class KeyType>
-MinHeap<KeyType>::MinHeap(vector<KeyType*> initA)
+MinHeap<KeyType>::MinHeap(vector<KeyType*> initA, int cap)
 {
-  A = new KeyType*[n];
-  this->capacity = initA.size();
+  A = new KeyType*[cap];
+  this->capacity = cap;
   this->heapSize = initA.size();
   for (int i=0; i < initA.size(); i++)
   {

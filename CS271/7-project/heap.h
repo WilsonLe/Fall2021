@@ -10,7 +10,7 @@ class MinHeap
 {
   public:
     MinHeap(int n = DEFAULT_SIZE);          // default constructor
-    MinHeap(vector<KeyType *> initA);      // construct heap from vector
+    MinHeap(vector<KeyType *> initA, int cap);      // construct heap from vector
     MinHeap(const MinHeap<KeyType>& heap);  // copy constructor
     ~MinHeap();                             // destructor
       

@@ -20,4 +20,4 @@ class Graph {
         vector<Vertex *> adjList;
 };
 
-#endif GRAPH_H
+#endif
