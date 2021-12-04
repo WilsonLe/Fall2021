@@ -1,14 +1,29 @@
 #include<vector>
 using namespace std;
 
+#ifndef VERTEX_H
+#define VERTEX_H
 
 class Vertex {
-    int key;
-    Vertex *parent;
-    vector<Edge *> edges;
+    public:
+        int key;
+        int dist; // distance from source vertex.
+        Vertex *parent;
+        vector<Edge *> edges;
+
+        bool operator < (const Vertex& other) {
+            return (this->dist < other.dist);
+        } 
+
+        bool operator > (const Vertex& other) {
+            return (this->dist > other.dist);
+        } 
 };
 
 class Edge {
-    Vertex *dest;
-    int weight;
+    public:
+        Vertex *dest;
+        int weight;
 };
+
+#endif VERTEX_H

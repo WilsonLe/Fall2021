@@ -2,6 +2,9 @@
 #include "vertex.h"
 using namespace std;
 
+#ifndef GRAPH_H
+#define GRAPH_H
+
 class Graph {
     public:
         Graph(string fileName);
@@ -16,3 +19,5 @@ class Graph {
     private:
         vector<Vertex *> adjList;
 };
+
+#endif GRAPH_H
