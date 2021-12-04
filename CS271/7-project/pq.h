@@ -10,6 +10,7 @@ class MinPriorityQueue : public MinHeap<KeyType>
   public:            
     MinPriorityQueue();             // default constructor
     MinPriorityQueue(int n);        // construct an empty MPQ with capacity n
+    MinPriorityQueue(vector<KeyType *> initA);
     MinPriorityQueue(const MinPriorityQueue<KeyType>& pq);  // copy constructor
       
     KeyType* minimum() const;                   // return the minimum element

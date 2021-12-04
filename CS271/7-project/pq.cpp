@@ -6,9 +6,7 @@ Postcondition: An empty min priority queue of capacity 0
 ============================================================*/
 template <class KeyType>
 MinPriorityQueue<KeyType>::MinPriorityQueue() // : MinHeap<KeyType>()
-{
-	MinHeap<KeyType> pq(0);  	// call MinHeap constructors for a new heap of capacity 0
-}
+{ }
 
 /*==========================================================
 MinPriorityQueue(int n);            	// construct an empty MPQ with capacity n
@@ -17,9 +15,11 @@ Postcondition: An empty min priority queue of capacity n
 ============================================================*/
 template <class KeyType>
 MinPriorityQueue<KeyType>::MinPriorityQueue(int n) : MinHeap<KeyType>(n)
-{
-	MinHeap<KeyType> pq(n); // call MinHeap constructors for a new heap of capacity n
-}
+{ }
+
+template <class KeyType>
+MinPriorityQueue<KeyType>::MinPriorityQueue(vector<KeyType *> initA) : MinHeap<KeyType>(initA)
+{ }
 
 /*==========================================================
 MinPriorityQueue(const MinPriorityQueue<KeyType>& pq);      // copy constructor
@@ -28,9 +28,7 @@ Postcondition: A min priority queue copied from the MPQ given
 ============================================================*/
 template <class KeyType>
 MinPriorityQueue<KeyType>::MinPriorityQueue(const MinPriorityQueue<KeyType>& pq) : MinHeap<KeyType>(pq)
-{
-	MinHeap<KeyType> queue(pq); 	// call MinHeap copy constructor
-}
+{ }
 
 /*==========================================================
 minimum()				// return the minimum element
