@@ -1,4 +1,5 @@
 {
+	"editor.formatOnPaste": true,
 	"python.languageServer": "Jedi",
 	"python.defaultInterpreterPath": "./venv/bin/python",
 	// "python.linting.pylintEnabled": true,

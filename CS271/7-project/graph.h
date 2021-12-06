@@ -1,23 +1,31 @@
-#include <iostream>
 #include "vertex.h"
+#include <iostream>
+#include <sstream>
+#include <string>
 using namespace std;
 
 #ifndef GRAPH_H
 #define GRAPH_H
 
 class Graph {
-    public:
-        Graph(string fileName);
-        Graph(const Graph& otherGraph);
-        Graph& operator=(const Graph& otherGraph);
-        ~Graph();
+public:
+  friend void testGraphConstructor();
+  friend void testGraphPrim();
+  Graph(string fileName);
+  Graph(const Graph &otherGraph);
+  Graph &operator=(const Graph &otherGraph);
+  ~Graph();
 
-        void dfs();
-        bool cycle();
-        void prim(int root);
+  string toString();
 
-    private:
-        vector<Vertex *> adjList;
+  void dfs();
+  bool cycle();
+  void prim(int root);
+
+private:
+  vector<Vertex *> adjList;
+  void dfsVisit(Vertex *u);
 };
 
+#include "graph.cpp"
 #endif
