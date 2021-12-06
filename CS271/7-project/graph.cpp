@@ -75,6 +75,13 @@ void Graph::prim(int root) {
     }
 
     for(Vertex *vertex : adjList) {
+        if(vertex->parent == nullptr && vertex != root) {
+            cout << "The graph is disconnected. Therefore, prim operation is not possible." << '\n';
+            return;
+        }
+    }
+
+    for(Vertex *vertex : adjList) {
         if(vertex->parent) {
             cout << vertex->parent->key << " " << vertex->key << " " << vertex->minWeight << '\n';
         }
