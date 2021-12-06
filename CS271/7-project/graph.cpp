@@ -63,6 +63,33 @@ void Graph::dfsVisit(Vertex *u) {
   }
 }
 
+bool Graph::cycle() {
+  for (Vertex *vertex : adjList) {
+    vertex->visited = false;
+  }
+  for (Vertex *vertex : adjList) {
+    if (vertex->visited == false) {
+      bool hasCycle = this->dfsCycleVisit(vertex);
+      if (hasCycle == true) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+bool Graph::dfsCycleVisit(Vertex *u) {
+  u->visited = true;
+  for (Edge *edge : this->adjList[u->key]->edges) {
+    if (edge->dest->visited == false) {
+      return this->dfsCycleVisit(edge->dest);
+    } else {
+      return true;
+    }
+  }
+  return false;
+}
+
 /*
 In this implementation, I use a trick to avoid using the decreaseKey operation
 of the priority queue, since the decreaseKey operations requires us to save the

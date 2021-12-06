@@ -28,17 +28,42 @@ int main() {
   // 1 2 1
   // 1 3 1
   // 3 4 1
-
+  cout << "dfs output: " << endl;
   graph1.dfs();
   // expected
   // 0 1 2 4 3
+
+  cout << "cycle output:" << endl;
+  // expected 1
+  cout << graph1.cycle() << endl;
 
   Graph graph2("sampleGraph(2).txt");
   graph2.prim(0);
   // expected
   // The graph is disconnected. Therefore, prim operation is not possible.
+
+  cout << "dfs output: " << endl;
   graph2.dfs();
   // expected
   // 0 1
   // 2 3
+
+  cout << "cycle output:" << endl;
+  // expected 1
+  cout << graph2.cycle() << endl;
+
+  Graph graph3("sampleGraph(3).txt");
+  graph3.prim(0);
+  // expected
+  // The graph is disconnected. Therefore, prim operation is not possible.
+
+  cout << "dfs output: " << endl;
+  graph3.dfs();
+  // expected
+  // 0 1
+  // 2 3
+
+  cout << "cycle output:" << endl;
+  // expected 0
+  cout << graph3.cycle() << endl;
 }

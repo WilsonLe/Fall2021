@@ -25,6 +25,7 @@ public:
 private:
   vector<Vertex *> adjList;
   void dfsVisit(Vertex *u);
+  bool dfsCycleVisit(Vertex *u);
 };
 
 #include "graph.cpp"
