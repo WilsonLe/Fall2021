@@ -66,4 +66,19 @@ int main() {
   cout << "cycle output:" << endl;
   // expected 0
   cout << graph3.cycle() << endl;
+
+  Graph graph4("sampleGraph(4).txt");
+  graph4.prim(0);
+  // expected
+  // The graph is disconnected. Therefore, prim operation is not possible.
+
+  cout << "dfs output: " << endl;
+  graph4.dfs();
+  // expected
+  // 0 1
+  // 2 3
+
+  cout << "cycle output:" << endl;
+  // expected 0
+  cout << graph4.cycle() << endl;
 }

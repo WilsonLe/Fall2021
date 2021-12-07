@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vector>
 using namespace std;
 
 #ifndef GRAPH_H
@@ -25,7 +26,7 @@ public:
 private:
   vector<Vertex *> adjList;
   void dfsVisit(Vertex *u);
-  bool dfsCycleVisit(Vertex *u);
+  bool dfsCycleVisit(Vertex *u, vector<bool> &visited);
 };
 
 #include "graph.cpp"

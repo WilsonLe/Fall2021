@@ -56,7 +56,7 @@ void Graph::dfs() {
 void Graph::dfsVisit(Vertex *u) {
   u->visited = true;
   cout << u->key << " ";
-  for (Edge *edge : this->adjList[u->key]->edges) {
+  for (Edge *edge : adjList[u->key]->edges) {
     if (edge->dest->visited == false) {
       dfsVisit(edge->dest);
     }
@@ -67,10 +67,12 @@ bool Graph::cycle() {
   for (Vertex *vertex : adjList) {
     vertex->visited = false;
   }
+  vector<bool> visitedStack;
+  for (int i = 0; i < adjList.size(); i++)
+    visitedStack.push_back(false);
   for (Vertex *vertex : adjList) {
     if (vertex->visited == false) {
-      bool hasCycle = this->dfsCycleVisit(vertex);
-      if (hasCycle == true) {
+      if (dfsCycleVisit(vertex, visitedStack)) {
         return true;
       }
     }
@@ -78,15 +80,17 @@ bool Graph::cycle() {
   return false;
 }
 
-bool Graph::dfsCycleVisit(Vertex *u) {
+bool Graph::dfsCycleVisit(Vertex *u, vector<bool> &visitedStack) {
   u->visited = true;
-  for (Edge *edge : this->adjList[u->key]->edges) {
-    if (edge->dest->visited == false) {
-      return this->dfsCycleVisit(edge->dest);
-    } else {
+  visitedStack[u->key] = true;
+  for (Edge *edge : adjList[u->key]->edges) {
+    if (!edge->dest->visited && dfsCycleVisit(edge->dest, visitedStack)) {
+      return true;
+    } else if (visitedStack[edge->dest->key]) {
       return true;
     }
   }
+  visitedStack[u->key] = false;
   return false;
 }
 
