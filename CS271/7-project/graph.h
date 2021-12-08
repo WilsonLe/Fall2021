@@ -1,3 +1,6 @@
+/*
+Tung Luu and Wilson Le
+*/
 #include "vertex.h"
 #include <iostream>
 #include <sstream>

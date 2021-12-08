@@ -1,3 +1,6 @@
+/*
+Tung Luu and Wilson Le
+*/
 #include "heap.h"
 #include <sstream>
 

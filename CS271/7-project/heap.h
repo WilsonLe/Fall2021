@@ -1,3 +1,6 @@
+/*
+Tung Luu and Wilson Le
+*/
 #ifndef HEAP_H
 #define HEAP_H
 

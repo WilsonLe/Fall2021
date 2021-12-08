@@ -1,3 +1,6 @@
+/*
+Tung Luu and Wilson Le
+*/
 #ifndef PQ_H
 #define PQ_H
 
